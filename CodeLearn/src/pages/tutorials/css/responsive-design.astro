@@ -1,0 +1,84 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="css">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Responsive Design
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Responsive design ensures your website looks and functions well on all devices, from mobile phones to desktop computers. It's achieved through flexible layouts, media queries, and responsive units.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Media Queries</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Mobile First Approach */
+.container {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container {
+    padding: 3rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Common Breakpoints */
+/* Small: 576px, Medium: 768px, Large: 992px, X-Large: 1200px */`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Responsive Units</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Relative Units */
+.container {
+  /* Viewport units */
+  width: 100vw;
+  height: 100vh;
+  
+  /* Percentage */
+  width: 100%;
+  max-width: 1200px;
+  
+  /* Relative font units */
+  font-size: 1rem; /* Based on root element */
+  font-size: 1em; /* Based on parent element */
+  
+  /* Fluid typography */
+  font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* Flexible images */
+img {
+  max-width: 100%;
+  height: auto;
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Responsive Strategies</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Mobile First</strong>: Design for mobile, then enhance for larger screens</li>
+        <li><strong class="text-custom-primary">Fluid Layouts</strong>: Use percentages and max-width instead of fixed widths</li>
+        <li><strong class="text-custom-primary">Flexible Images</strong>: Ensure images scale appropriately</li>
+        <li><strong class="text-custom-primary">CSS Grid & Flexbox</strong>: Use modern layout methods for responsiveness</li>
+        <li><strong class="text-custom-primary">Viewport Meta Tag</strong>: Essential for mobile responsiveness</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

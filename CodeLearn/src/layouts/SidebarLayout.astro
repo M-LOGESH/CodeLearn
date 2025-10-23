@@ -1,0 +1,231 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+
+interface Topic {
+  type?: string;
+  slug?: string;
+  title: string;
+  children?: Topic[];
+}
+
+const { app = "C" } = Astro.props as { app?: string };
+const topics: Topic[] = (await import(`../data/${app}Topics.js`)).default;
+
+// Get current slug - updated path parsing for tutorials structure
+const segments: string[] = Astro.url.pathname.split("/").filter(Boolean);
+
+const slug: string = segments.length === 2 ? "index" : segments[segments.length - 1];
+
+// Get current topic title
+function findTitle(slug: string): string {
+  for (const topic of topics) {
+    if (topic.type === "group" && topic.children) {
+      const found = topic.children.find((child: Topic) => child.slug === slug);
+      if (found) return found.title;
+    } else if (topic.slug === slug) {
+      return topic.title;
+    }
+  }
+  return "Unknown Topic";
+}
+
+const currentTitle: string = findTitle(slug);
+
+// Flatten topics for prev/next
+const flatTopics: Topic[] = topics.flatMap((topic: Topic) =>
+  topic.type === "group" && topic.children ? topic.children : [topic]
+);
+const currentIndex: number = flatTopics.findIndex((item: Topic) => item.slug === slug);
+const prev: Topic | undefined = flatTopics[currentIndex - 1];
+const next: Topic | undefined = flatTopics[currentIndex + 1];
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{currentTitle} – {app.charAt(0).toUpperCase() + app.slice(1)} Tutorials</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script is:inline>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          if (!savedTheme) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              savedTheme = 'dark';
+            } else {
+              savedTheme = 'light';
+            }
+            localStorage.setItem('theme', savedTheme);
+          }
+          
+          document.documentElement.setAttribute('data-theme', savedTheme);
+          document.documentElement.style.setProperty('--theme-applied', 'true');
+          
+          window.__initialTheme = savedTheme;
+          
+        } catch (e) {
+          console.error('Theme initialization error:', e);
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+
+    <style>
+      .rotate-180 { transform: rotate(180deg); }
+      .topic-link.bg-cyan-700:hover {
+        background-color: #3086a0ff !important;
+        color: white !important;
+      }
+    </style>
+  </head>
+
+  <body id="main-body" class="min-h-screen flex flex-col bg-stone-200 text-black dark:bg-stone-900 dark:text-white">
+    <Header />
+
+    <!-- Breadcrumb -->
+    <div
+      class="breadcrumb-bg fixed top-[53px] sm:top-16 left-0 w-full z-40 shadow-sm flex items-center"
+    >
+      <div
+        class="w-12 lg:w-[16rem] flex items-center justify-center lg:justify-start space-x-3 px-2 py-2 border-r sidebar-border"
+      >
+        <i id="sidebarToggle" class="fas fa-book text-custom-primary text-base sm:text-lg cursor-pointer"></i>
+        <span class="hidden lg:inline font-semibold text-custom-primary">Topic</span>
+      </div>
+      <div class="flex-1 px-3 py-2 text-xs sm:text-sm breadcrumb-secondary overflow-hidden">
+        {app.charAt(0).toUpperCase() + app.slice(1)} › {currentTitle}
+      </div>
+    </div>
+
+    <!-- Layout -->
+    <main class="flex pt-[87px] sm:pt-[104px] min-h-[calc(100vh-192px)] flex-1">
+      <!-- Sidebar -->
+<aside
+  id="sidebar"
+  class="sidebar-bg sidebar-scrollbar fixed left-0 z-30 w-[16rem] min-w-[16rem] transition-transform transform -translate-x-full lg:translate-x-0 lg:sticky lg:block shrink-0
+         top-[85px] sm:top-[104px] h-full sm:h-[calc(100vh-104px)] overflow-y-auto border-r sidebar-border"
+>
+        <div class="p-4 space-y-2 text-base">
+          {topics.map((topic: Topic) =>
+            topic.type === "group" && topic.children ? (
+              <>
+                <button
+                  class="w-full flex items-center justify-between px-4 py-2 sidebar-hover focus:outline-none toggle-subtopic"
+                >
+                  <span>{topic.title}</span>
+                  <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                </button>
+                <div
+                  class={`ml-4 mt-1 space-y-1 subtopic-list ${
+                    topic.children.some((child: Topic) => child.slug === slug) ? "" : "hidden"
+                  }`}
+                >
+                  {topic.children.map((child: Topic) => (
+                    <a
+                      href={`/tutorials/${app}/${child.slug}`}
+                      class={`block px-4 py-2 sidebar-hover topic-link ${
+                        slug === child.slug ? "bg-cyan-700 text-white font-semibold" : ""
+                      }`}
+                    >
+                      {child.title}
+                    </a>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <a
+                href={`/tutorials/${app}${topic.slug === "index" ? "" : `/${topic.slug}`}`}
+                class={`block px-4 py-2 sidebar-hover topic-link ${
+                  slug === topic.slug ? "bg-cyan-700 text-white font-semibold" : ""
+                }`}
+              >
+                {topic.title}
+              </a>
+            )
+          )}
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <section class="flex-1 flex flex-col lg:flex-row px-6">
+        <div class="flex-1 flex flex-col pt-6 pb-4">
+          <div class="flex-1">
+            <slot />
+          </div>
+
+          <!-- Prev/Next Buttons -->
+          <div
+            class="pt-6 mt-auto border-t border-gray-300 dark:border-gray-700 flex justify-between text-sm sm:text-base"
+          >
+            {prev ? (
+              <a
+                href={`/tutorials/${app}${prev.slug === "index" ? "" : `/${prev.slug}`}`}
+                class="px-4 py-2 bg-cyan-700 text-white rounded hover:bg-cyan-600"
+              >
+                &lt; Previous
+              </a>
+            ) : (
+              <span></span>
+            )}
+
+            {next ? (
+              <a
+                href={`/tutorials/${app}/${next.slug}`}
+                class="px-4 py-2 bg-cyan-700 text-white rounded hover:bg-cyan-600 ml-auto"
+              >
+                Next &gt;
+              </a>
+            ) : (
+              <span></span>
+            )}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+
+    <!-- Sidebar Script -->
+    <script>
+      document.querySelectorAll<HTMLButtonElement>('.toggle-subtopic').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const subList = btn.nextElementSibling as HTMLElement | null;
+          const icon = btn.querySelector('i');
+          if (!subList || !icon) return;
+          subList.classList.toggle('hidden');
+          icon.classList.toggle('rotate-179');
+        });
+      });
+
+      const sidebarBtn = document.getElementById("sidebarToggle");
+      sidebarBtn?.addEventListener("click", () => {
+        const sidebar = document.getElementById("sidebar");
+        sidebar?.classList.toggle("-translate-x-full");
+      });
+
+      function scrollActiveTopic(offset = 80) {
+        const sidebar = document.getElementById("sidebar");
+        const activeLink = sidebar?.querySelector(".topic-link.bg-cyan-700") as HTMLElement | null;
+        if (activeLink && sidebar) {
+          const top = (activeLink.offsetTop ?? 0) - offset;
+          sidebar.scrollTop = top;
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", () => scrollActiveTopic());
+      document.getElementById("sidebarToggle")?.addEventListener("click", () => {
+        setTimeout(() => scrollActiveTopic(), 300);
+      });
+    </script>
+
+    <script type="module" src="/scripts/global.js"></script>
+  </body>
+</html>

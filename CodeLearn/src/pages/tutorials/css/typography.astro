@@ -1,0 +1,76 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="css">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    CSS Typography
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Typography is crucial for readability and user experience. CSS provides extensive control over fonts, text styling, and text layout.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Font Properties</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`body {
+  /* Font family with fallbacks */
+  font-family: 'Inter', 'Arial', sans-serif;
+  
+  /* Font size and weight */
+  font-size: 16px;
+  font-weight: 400;
+  
+  /* Line height for readability */
+  line-height: 1.6;
+  
+  /* Text transformation */
+  text-transform: none;
+  font-style: normal;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Text Styling</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`.text-element {
+  /* Text color and alignment */
+  color: #333;
+  text-align: left;
+  
+  /* Text decoration */
+  text-decoration: none;
+  text-decoration: underline;
+  
+  /* Text spacing */
+  letter-spacing: 0.5px;
+  word-spacing: 2px;
+  
+  /* Text effects */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-transform: uppercase;
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Web Fonts</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">@font-face</code> for custom fonts</li>
+        <li>Google Fonts provides easy-to-use web fonts</li>
+        <li>Consider font loading performance with <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">font-display: swap</code></li>
+        <li>Provide fallback fonts for better compatibility</li>
+        <li>Use relative units (em, rem) for responsive typography</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

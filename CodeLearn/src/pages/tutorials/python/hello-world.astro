@@ -1,0 +1,57 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Hello World in Python
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      The "Hello World" program is the traditional first program when learning any programming language. In Python, it's incredibly simple and demonstrates the language's readability.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic Hello World</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Simple Hello World program
+print("Hello, World!")`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Running Python Code</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Save as hello.py and run with:
+# python hello.py
+
+# Or use Python interactively:
+# python
+# >>> print("Hello, World!")
+# Hello, World!
+
+# Using variables
+message = "Hello, Python!"
+print(message)
+
+# Multiple prints
+print("Hello")
+print("World!")
+
+# Print with separator
+print("Hello", "World", sep="-")  # Output: Hello-World`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Key Python Features</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>No semicolons needed at line endings</li>
+        <li>Indentation is used for code blocks (4 spaces recommended)</li>
+        <li>Comments start with <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">#</code></li>
+        <li>Python is case-sensitive</li>
+        <li>Simple and readable syntax</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

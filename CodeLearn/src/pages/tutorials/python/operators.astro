@@ -1,0 +1,126 @@
+---
+// File: src/pages/python/operators.astro
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Python Operators
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Operators are special symbols that perform operations on variables and values. Python provides various types of operators for arithmetic, comparison, logical operations, and more.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Arithmetic Operators</h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-custom text-sm sm:text-base">
+        <thead>
+          <tr class="bg-custom-secondary">
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Operator</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Description</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Example</th>
+          </tr>
+        </thead>
+        <tbody class="text-custom-secondary">
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">+</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Addition</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>5 + 3 → 8</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">-</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Subtraction</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>10 - 4 → 6</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">*</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Multiplication</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>3 * 4 → 12</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">/</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Division</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>10 / 3 → 3.333</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">//</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Floor Division</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>10 // 3 → 3</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">%</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Modulus</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>10 % 3 → 1</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">**</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Exponentiation</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>2 ** 3 → 8</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Comparison & Logical Operators</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Comparison Operators
+x = 10
+y = 5
+
+print(x == y)   # False - Equal to
+print(x != y)   # True  - Not equal to
+print(x > y)    # True  - Greater than
+print(x < y)    # False - Less than
+print(x >= y)   # True  - Greater than or equal to
+print(x <= y)   # False - Less than or equal to
+
+# Logical Operators
+a = True
+b = False
+
+print(a and b)  # False - Both must be True
+print(a or b)   # True  - At least one True
+print(not a)    # False - Negation
+
+# Combining operators
+age = 25
+has_license = True
+
+can_drive = age >= 18 and has_license
+print(can_drive)  # True
+
+# Identity operators
+list1 = [1, 2, 3]
+list2 = [1, 2, 3]
+list3 = list1
+
+print(list1 is list2)     # False - different objects
+print(list1 is list3)     # True - same object
+print(list1 == list2)     # True - same values
+
+# Membership operators
+fruits = ['apple', 'banana', 'orange']
+print('apple' in fruits)     # True
+print('grape' not in fruits) # True`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Operator Precedence</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Parentheses</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">()</code></li>
+        <li><strong class="text-custom-primary">Exponentiation</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">**</code></li>
+        <li><strong class="text-custom-primary">Multiplication/Division</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">* / // %</code></li>
+        <li><strong class="text-custom-primary">Addition/Subtraction</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">+ -</code></li>
+        <li><strong class="text-custom-primary">Comparison</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">== != &gt; &lt; &gt;= &lt;=</code></li>
+        <li><strong class="text-custom-primary">Logical NOT</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">not</code></li>
+        <li><strong class="text-custom-primary">Logical AND</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">and</code></li>
+        <li><strong class="text-custom-primary">Logical OR</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">or</code></li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

@@ -1,0 +1,140 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Python Dictionaries
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Dictionaries are unordered, mutable collections of key-value pairs. They provide fast lookups by key and are one of Python's most powerful data structures.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Dictionary Creation & Basic Operations</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Creating dictionaries
+empty_dict = {}
+person = {"name": "John", "age": 30, "city": "New York"}
+mixed_keys = {1: "one", "two": 2, (1, 2): "tuple_key"}
+
+# Using dict() constructor
+person2 = dict(name="Alice", age=25, city="London")
+numbers = dict([(1, "one"), (2, "two"), (3, "three")])
+
+# Accessing values
+print(person["name"])          # John
+print(person.get("age"))       # 30
+
+# Safe access with get()
+print(person.get("country"))           # None
+print(person.get("country", "USA"))    # USA (default value)
+
+# Adding and modifying items
+person["email"] = "john@example.com"   # Add new key
+person["age"] = 31                     # Modify existing value
+
+# Removing items
+email = person.pop("email")            # Remove and return value
+age = person.pop("age", 0)             # With default value
+# del person["city"]                   # Remove using del
+# person.clear()                       # Remove all items
+
+# Dictionary methods
+print(person.keys())      # dict_keys(['name', 'city'])
+print(person.values())    # dict_values(['John', 'New York'])
+print(person.items())     # dict_items([('name', 'John'), ('city', 'New York')])
+
+# Membership testing
+print("name" in person)       # True
+print("country" not in person) # True
+
+# Dictionary length
+print(len(person))  # 2`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Dictionary Operations & Advanced Features</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Looping through dictionaries
+person = {"name": "John", "age": 30, "city": "New York"}
+
+# By keys (default)
+for key in person:
+    print(f"{key}: {person[key]}")
+
+# By keys explicitly
+for key in person.keys():
+    print(key)
+
+# By values
+for value in person.values():
+    print(value)
+
+# By key-value pairs
+for key, value in person.items():
+    print(f"{key}: {value}")
+
+# Dictionary comprehension
+squares = {x: x**2 for x in range(1, 6)}
+print(squares)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+# Filtered comprehension
+even_squares = {x: x**2 for x in range(1, 11) if x % 2 == 0}
+print(even_squares)  # {2: 4, 4: 16, 6: 36, 8: 64, 10: 100}
+
+# Merging dictionaries (Python 3.5+)
+dict1 = {"a": 1, "b": 2}
+dict2 = {"b": 3, "c": 4}
+merged = {**dict1, **dict2}  # Later values overwrite
+print(merged)  # {'a': 1, 'b': 3, 'c': 4}
+
+# Using setdefault()
+person = {"name": "John", "age": 30}
+city = person.setdefault("city", "Unknown")
+hobbies = person.setdefault("hobbies", [])
+hobbies.append("reading")
+
+print(person)  # {'name': 'John', 'age': 30, 'city': 'Unknown', 'hobbies': ['reading']}
+
+# Using update()
+person.update({"age": 31, "country": "USA"})
+print(person)
+
+# Nested dictionaries
+students = {
+    "Alice": {"age": 20, "grade": "A"},
+    "Bob": {"age": 22, "grade": "B"},
+    "Charlie": {"age": 21, "grade": "A"}
+}
+
+print(students["Alice"]["grade"])  # A
+
+# Adding to nested dictionary
+students["Alice"]["subjects"] = ["Math", "Physics"]
+
+# Dictionary from two lists
+keys = ["name", "age", "city"]
+values = ["John", 30, "New York"]
+person_dict = dict(zip(keys, values))
+print(person_dict)  # {'name': 'John', 'age': 30, 'city': 'New York'}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Dictionary Characteristics</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Unordered</strong>: No guaranteed order (Python 3.7+ maintains insertion order)</li>
+        <li><strong class="text-custom-primary">Mutable</strong>: Can be modified after creation</li>
+        <li><strong class="text-custom-primary">Keys must be hashable</strong>: Strings, numbers, tuples (immutable types)</li>
+        <li><strong class="text-custom-primary">Values can be any type</strong>: Including other dictionaries</li>
+        <li><strong class="text-custom-primary">Fast lookups</strong>: O(1) average case complexity</li>
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">.get()</code> for safe value retrieval</li>
+        <li>Use dictionary comprehensions for transformations</li>
+        <li>Perfect for representing structured data</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

@@ -1,0 +1,43 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="sql">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    SQL Tutorials
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      <strong class="text-custom-primary">SQL (Structured Query Language)</strong> is the standard language for managing and manipulating relational databases. It's used to store, retrieve, and manipulate data in database systems.
+    </p>
+
+    <p>
+      SQL is essential for working with data-driven applications. Whether you're a web developer, data analyst, or software engineer, understanding SQL is crucial for interacting with databases effectively.
+    </p>
+
+    <p>
+      In this tutorial series, you'll learn:
+    </p>
+
+    <ul class="list-disc list-inside space-y-2 pl-4">
+      <li>Database fundamentals and design</li>
+      <li>SQL syntax and basic queries</li>
+      <li>Filtering, sorting, and aggregating data</li>
+      <li>Joins and relationships between tables</li>
+      <li>Subqueries and advanced filtering</li>
+      <li>Database normalization and optimization</li>
+    </ul>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Why Learn SQL?</h2>
+      <p>
+        SQL is one of the most enduring and widely-used programming languages. Nearly every application that stores data uses SQL or a SQL-like language. It's a fundamental skill for developers, data analysts, and anyone working with data.
+      </p>
+      <p class="mt-3">
+        SQL skills are highly transferable across different database systems like MySQL, PostgreSQL, SQL Server, and SQLite. Once you learn SQL, you can work with most relational database management systems.
+      </p>
+    </div>
+  </section>
+</SidebarLayout>

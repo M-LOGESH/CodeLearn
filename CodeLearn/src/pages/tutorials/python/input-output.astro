@@ -1,0 +1,96 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Input & Output
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Python provides built-in functions for handling input and output operations. The <code>print()</code> function is used for output, while <code>input()</code> is used for getting user input.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Output with print()</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Basic print
+print("Hello, World!")
+
+# Printing variables
+name = "Alice"
+age = 25
+print("Name:", name, "Age:", age)
+
+# String formatting (f-strings - Python 3.6+)
+print(f"Name: {name}, Age: {age}")
+
+# Format method
+print("Name: {}, Age: {}".format(name, age))
+
+# Multiple lines
+print("Line 1")
+print("Line 2")
+
+# Printing without newline
+print("Hello", end=" ")
+print("World!")  # Output: Hello World!
+
+# Separator
+print("Python", "is", "awesome", sep="-")  # Python-is-awesome
+
+# Formatted numbers
+pi = 3.14159
+print(f"Pi value: {pi:.2f}")  # Pi value: 3.14`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Input with input()</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Basic input
+name = input("Enter your name: ")
+print(f"Hello, {name}!")
+
+# Input always returns a string
+age = input("Enter your age: ")
+print(f"Type of age: {type(age)}")  # &lt;class 'str'&gt;
+
+# Converting input to other types
+age = int(input("Enter your age: "))
+height = float(input("Enter your height in meters: "))
+is_student = input("Are you a student? (yes/no): ").lower() == "yes"
+
+print(f"Age: {age}, Height: {height}, Student: {is_student}")
+
+# Multiple inputs
+data = input("Enter two numbers separated by space: ")
+num1, num2 = map(int, data.split())
+print(f"Numbers: {num1}, {num2}")
+
+# Input with validation
+while True:
+    try:
+        number = int(input("Enter a number: "))
+        break
+    except ValueError:
+        print("Please enter a valid number!")
+
+print(f"You entered: {number}")`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">String Formatting Methods</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">f-strings</strong> (recommended): <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">f"Hello name"</code></li>
+        <li><strong class="text-custom-primary">str.format()</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">"Hello {}".format("name")</code></li>
+        <li><strong class="text-custom-primary">% formatting</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">"Hello %s" % "name"</code></li>
+        <li><strong class="text-custom-primary">Concatenation</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">"Hello " + "name"</code></li>
+        <li>f-strings are fastest and most readable</li>
+        <li>Always validate and convert user input</li>
+        <li>Use proper error handling with try-except blocks</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

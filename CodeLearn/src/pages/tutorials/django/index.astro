@@ -1,0 +1,43 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="django">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Django Tutorials
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      <strong class="text-custom-primary">Django</strong> is a high-level Python web framework that encourages rapid development and clean, pragmatic design. It follows the "batteries-included" philosophy and the DRY (Don't Repeat Yourself) principle.
+    </p>
+
+    <p>
+      Django takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It's free, open-source, and has a thriving community.
+    </p>
+
+    <p>
+      In this tutorial series, you'll learn:
+    </p>
+
+    <ul class="list-disc list-inside space-y-2 pl-4">
+      <li>Django project structure and setup</li>
+      <li>Models and database design</li>
+      <li>Views and URL routing</li>
+      <li>Templates and frontend integration</li>
+      <li>Forms and user input handling</li>
+      <li>Authentication and admin interface</li>
+    </ul>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Why Learn Django?</h2>
+      <p>
+        Django is one of the most popular and mature Python web frameworks. It's used by companies like Instagram, Pinterest, and Mozilla to build scalable web applications quickly.
+      </p>
+      <p class="mt-3">
+        With built-in features for security, database management, and administration, Django allows developers to build robust web applications while following best practices out of the box.
+      </p>
+    </div>
+  </section>
+</SidebarLayout>

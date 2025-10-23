@@ -1,0 +1,43 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    HTML Tutorials
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      <strong class="text-custom-primary">HyperText Markup Language (HTML)</strong> is the foundation of all web pages. It provides the structure and content of websites, defining elements like headings, paragraphs, images, and links.
+    </p>
+
+    <p>
+      HTML uses a system of tags and attributes to organize content in a way that web browsers can understand and display. It works together with CSS for styling and JavaScript for interactivity.
+    </p>
+
+    <p>
+      In this tutorial series, you'll learn:
+    </p>
+
+    <ul class="list-disc list-inside space-y-2 pl-4">
+      <li>Basic HTML structure and syntax</li>
+      <li>Text formatting and content organization</li>
+      <li>Creating links and embedding images</li>
+      <li>Building interactive forms</li>
+      <li>Semantic HTML for better accessibility</li>
+      <li>Working with tables and multimedia</li>
+    </ul>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Why Learn HTML?</h2>
+      <p>
+        HTML is the essential building block of the web. Every website you visit is built with HTML. Understanding HTML is crucial for web development, content creation, and digital marketing.
+      </p>
+      <p class="mt-3">
+        Modern HTML5 introduced semantic elements that improve accessibility, SEO, and code maintainability, making it more important than ever to learn proper HTML practices.
+      </p>
+    </div>
+  </section>
+</SidebarLayout>

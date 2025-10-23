@@ -1,0 +1,92 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Semantic HTML
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Semantic HTML uses meaningful elements that clearly describe their purpose, making web pages more accessible, maintainable, and SEO-friendly.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Semantic vs Non-Semantic Elements</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- Non-semantic (avoid) -->
+<div id="header">...</div>
+<div class="nav">...</div>
+<div id="main">...</div>
+<div class="footer">...</div>
+
+<!-- Semantic (prefer) -->
+<header>...</header>
+<nav>...</nav>
+<main>...</main>
+<footer>...</footer>`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Common Semantic Elements</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic HTML Example</title>
+</head>
+<body>
+    <header>
+        <h1>Website Title</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <article>
+            <header>
+                <h2>Article Title</h2>
+                <time datetime="2023-10-01">October 1, 2023</time>
+            </header>
+            <section>
+                <h3>Introduction</h3>
+                <p>Article content...</p>
+            </section>
+            <aside>
+                <p>Related information...</p>
+            </aside>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Company Name</p>
+        <address>Contact: <a href="mailto:info@example.com">info@example.com</a></address>
+    </footer>
+</body>
+</html>`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Semantic Element Purposes</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">&lt;header&gt;</strong>: Introductory content or navigation</li>
+        <li><strong class="text-custom-primary">&lt;nav&gt;</strong>: Navigation links</li>
+        <li><strong class="text-custom-primary">&lt;main&gt;</strong>: Dominant content of the document</li>
+        <li><strong class="text-custom-primary">&lt;article&gt;</strong>: Self-contained composition</li>
+        <li><strong class="text-custom-primary">&lt;section&gt;</strong>: Thematic grouping of content</li>
+        <li><strong class="text-custom-primary">&lt;aside&gt;</strong>: Tangentially related content</li>
+        <li><strong class="text-custom-primary">&lt;footer&gt;</strong>: Footer for its nearest section</li>
+        <li><strong class="text-custom-primary">&lt;figure&gt;</strong> & <strong class="text-custom-primary">&lt;figcaption&gt;</strong>: Images with captions</li>
+        <li><strong class="text-custom-primary">&lt;time&gt;</strong>: Machine-readable date/time</li>
+        <li><strong class="text-custom-primary">&lt;mark&gt;</strong>: Highlighted text</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

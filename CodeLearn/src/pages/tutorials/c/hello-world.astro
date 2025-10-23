@@ -1,0 +1,47 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="c">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Hello World in C
+  </h1>
+
+  <section class="space-y-6 mb-5 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      The "Hello World" program is the traditional first program when learning any programming language. 
+      It demonstrates the basic syntax and structure of a C program.
+    </p>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\\n");
+    return 0;
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Program Breakdown</h2>
+
+    <ul class="list-disc list-inside space-y-2 pl-4">
+      <li><strong class="text-custom-primary">#include &lt;stdio.h&gt;</strong> - Includes the standard input/output library</li>
+      <li><strong class="text-custom-primary">int main()</strong> - The main function where program execution begins</li>
+      <li><strong class="text-custom-primary">printf()</strong> - Function to print output to the console</li>
+      <li><strong class="text-custom-primary">return 0;</strong> - Indicates successful program execution</li>
+    </ul>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Compilation and Execution</h2>
+      <p>
+        To compile and run this program:
+      </p>
+      <ol class="list-decimal list-inside space-y-2 pl-4 mt-2">
+        <li>Save the code in a file named <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">hello.c</code></li>
+        <li>Compile using: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">gcc hello.c -o hello</code></li>
+        <li>Run the program: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">./hello</code></li>
+      </ol>
+    </div>
+  </section>
+</SidebarLayout>

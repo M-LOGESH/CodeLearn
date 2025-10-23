@@ -1,0 +1,93 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    HTML Multimedia
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      HTML5 provides native support for audio and video content without requiring plugins. Multimedia elements enhance user engagement and provide rich content experiences.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Audio Element</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- Basic audio player -->
+<audio controls>
+  <source src="audio.mp3" type="audio/mpeg">
+  <source src="audio.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Audio with additional attributes -->
+<audio controls loop muted preload="metadata">
+  <source src="song.mp3" type="audio/mpeg">
+  <source src="song.ogg" type="audio/ogg">
+  <track kind="captions" src="captions.vtt" srclang="en" label="English">
+</audio>
+
+<!-- Audio with fallback content -->
+<audio controls>
+  <source src="audio.mp3" type="audio/mpeg">
+  <p>
+    Download <a href="audio.mp3">MP3</a> or 
+    <a href="audio.ogg">OGG</a> audio.
+  </p>
+</audio>`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Video Element</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- Basic video player -->
+<video controls width="640" height="360">
+  <source src="video.mp4" type="video/mp4">
+  <source src="video.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Video with poster and attributes -->
+<video controls width="800" height="450" 
+       poster="thumbnail.jpg" preload="metadata">
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.webm" type="video/webm">
+  
+  <!-- Subtitles and captions -->
+  <track kind="subtitles" src="subs_en.vtt" srclang="en" label="English">
+  <track kind="captions" src="caps_en.vtt" srclang="en" label="English Captions">
+  <track kind="chapters" src="chapters.vtt" srclang="en">
+  
+  <!-- Fallback content -->
+  <p>
+    Your browser doesn't support HTML5 video. 
+    Here is a <a href="video.mp4">link to the video</a> instead.
+  </p>
+</video>
+
+<!-- Autoplaying muted video (common for backgrounds) -->
+<video autoplay muted loop playsinline>
+  <source src="background.mp4" type="video/mp4">
+</video>`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Multimedia Attributes & Best Practices</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">controls</code>: Shows player controls</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">autoplay</code>: Starts playing automatically (use sparingly)</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">loop</code>: Repeats media</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">muted</code>: Starts with audio off</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">preload</code>: Hints for loading strategy</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">poster</code>: Thumbnail image for video</li>
+        <li>Provide multiple source formats for compatibility</li>
+        <li>Include captions and transcripts for accessibility</li>
+        <li>Consider file size and loading performance</li>
+        <li>Use appropriate media formats (MP4, WebM for video; MP3, OGG for audio)</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

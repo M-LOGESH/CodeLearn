@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import languages from '../data/exercise/exercise.js';
+---
+
+<BaseLayout>
+  <div class="py-15 space-y-12">
+    {languages.map((language) => (
+      <div class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-start gap-8">
+          <!-- Language Image -->
+          <div class="w-24 h-24 sm:w-30 sm:h-30 flex items-center justify-center rounded-lg self-center md:self-start overflow-hidden">
+            <img
+              src={language.image}
+              alt={language.name}
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Text Info -->
+          <div class="flex-1 flex flex-col text-left space-y-2">
+            <h2 class="text-xl sm:text-2xl font-bold text-custom-accent">{language.name}</h2>
+            <p class="text-custom-secondary text-sm sm:text-base leading-relaxed">
+              {language.description}
+            </p>
+            <p class="font-semibold text-custom-accent">{language.programsCount}</p>
+            <div>
+              <a
+                href={`/exercise/${language.slug}`}
+                class="inline-block px-3 sm:px-6 py-2 bg-cyan-700 hover:bg-cyan-600 hover:opacity-90 rounded text-sm sm:text-base text-white font-bold transition-colors duration-200"
+              >
+                Start Learning
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import programsData from "../../../data/exercise/exercisePrograms.js";
+import programCodes from "../../../data/exercise/programCodes.js";
+
+type Program = { number: number; title: string; slug: string };
+type ProgramsData = Record<string, Program[]>;
+
+// Generate static paths
+export async function getStaticPaths() {
+  const paths: { params: { slug: string; program: string } }[] = [];
+
+  for (const [slug, programs] of Object.entries(programsData as ProgramsData)) {
+    for (const program of programs) {
+      paths.push({
+        params: { slug, program: program.slug },
+      });
+    }
+  }
+
+  return paths;
+}
+
+// Get route params
+const { slug, program } = Astro.params as { slug: string; program: string };
+
+// Load programs for the current language
+const typedProgramsData = programsData as ProgramsData;
+const programs: Program[] = typedProgramsData[slug] ?? [];
+
+// Find current program
+const currentIndex = programs.findIndex((p) => p.slug === program);
+const currentProgram = programs[currentIndex];
+
+if (!currentProgram) {
+  throw new Error(`Program not found: ${slug}/${program}`);
+}
+
+// Previous / Next
+const prevProgram = currentIndex > 0 ? programs[currentIndex - 1] : null;
+const nextProgram = currentIndex < programs.length - 1 ? programs[currentIndex + 1] : null;
+
+// Get code snippet and result safely
+const langData = programCodes[slug]?.[currentProgram.slug];
+const codeSnippet = langData?.code ?? "Code not available yet.";
+const resultSnippet = langData?.result ?? "Result not available yet.";
+---
+
+<BaseLayout>
+  <main class="w-full overflow-x-hidden bg-custom-primary">
+    <div class="max-w-4xl mx-auto px-4 py-10 text-left space-y-6">
+      
+      <h1 class="text-xl sm:text-3xl font-bold text-custom-accent">
+        Program {currentProgram.number}: {currentProgram.title}
+      </h1>
+
+      <!-- Code Section -->
+      <h2 class="text-lg sm:text-xl font-semibold text-custom-accent">Code:</h2>
+      <pre class="bg-custom-secondary text-custom-primary p-4 rounded-lg overflow-x-auto whitespace-pre-wrap max-w-full border-custom border">
+{codeSnippet}
+      </pre>
+
+      <!-- Result Section -->
+      <h2 class="text-xl font-semibold text-custom-accent">Result:</h2>
+      <pre class="bg-custom-secondary text-custom-primary p-4 rounded-lg overflow-x-auto whitespace-pre-wrap max-w-full border-custom border">
+{resultSnippet}
+      </pre>
+
+      <!-- Prev / Next Buttons -->
+      <div class="flex justify-between items-center mt-8">
+        <!-- Prev Button -->
+        <div class="flex-1">
+          {prevProgram && (
+            <a href={`/exercise/${slug}/${prevProgram.slug}`} class="inline-flex items-center px-5 py-2 bg-cyan-700 text-white rounded-lg hover:opacity-90 transition">
+              <i class="fas fa-chevron-left mr-2"></i> Prev
+            </a>
+          )}
+        </div>
+
+        <!-- Next Button -->
+        <div class="flex-1 text-right">
+          {nextProgram && (
+            <a href={`/exercise/${slug}/${nextProgram.slug}`} class="inline-flex items-center px-5 py-2 bg-cyan-700 text-white rounded-lg hover:opacity-90 transition">
+              Next <i class="fas fa-chevron-right ml-2"></i>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

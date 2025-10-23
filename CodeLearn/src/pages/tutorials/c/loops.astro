@@ -1,0 +1,62 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="c">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Loops in C
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Loops are used to execute a block of code repeatedly. C provides three types of loops: for, while, and do-while.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">For Loop</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`#include <stdio.h>
+
+int main() {
+    // Print numbers from 1 to 5
+    for (int i = 1; i <= 5; i++) {
+        printf("%d ", i);
+    }
+    printf("\\n");
+    
+    return 0;
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">While Loop</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`#include <stdio.h>
+
+int main() {
+    int count = 1;
+    
+    // Print numbers from 1 to 5
+    while (count <= 5) {
+        printf("%d ", count);
+        count++;
+    }
+    printf("\\n");
+    
+    return 0;
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Loop Comparison</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">For loop</strong>: Used when number of iterations is known</li>
+        <li><strong class="text-custom-primary">While loop</strong>: Used when number of iterations is unknown</li>
+        <li><strong class="text-custom-primary">Do-while loop</strong>: Executes at least once, then checks condition</li>
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">break</code> to exit loop immediately</li>
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">continue</code> to skip current iteration</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

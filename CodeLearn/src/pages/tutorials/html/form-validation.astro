@@ -1,0 +1,97 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Form Validation
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      HTML5 provides built-in form validation that works without JavaScript. It helps ensure users provide correctly formatted data before form submission.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Built-in Validation Attributes</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<form>
+  <!-- Required field -->
+  <input type="text" name="username" required>
+  
+  <!-- Minimum and maximum length -->
+  <input type="text" name="password" minlength="8" maxlength="20">
+  
+  <!-- Pattern matching with regex -->
+  <input type="text" name="zipcode" pattern="[0-9]{5}" 
+         title="Five-digit zip code">
+  
+  <!-- Email validation -->
+  <input type="email" name="email" required>
+  
+  <!-- URL validation -->
+  <input type="url" name="website">
+  
+  <!-- Number range -->
+  <input type="number" name="age" min="18" max="100">
+  
+  <!-- Custom validation message -->
+  <input type="text" name="custom" 
+         oninvalid="this.setCustomValidity('Please enter a valid value')"
+         oninput="this.setCustomValidity('')">
+  
+  <button type="submit">Submit</button>
+</form>`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Constraint Validation API</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<form id="myForm">
+  <input type="email" id="email" required>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+const form = document.getElementById('myForm');
+const email = document.getElementById('email');
+
+form.addEventListener('submit', function(event) {
+  // Check validity
+  if (!email.validity.valid) {
+    // Prevent form submission
+    event.preventDefault();
+    
+    // Show custom error message
+    if (email.validity.valueMissing) {
+      email.setCustomValidity('Please enter an email address');
+    } else if (email.validity.typeMismatch) {
+      email.setCustomValidity('Please enter a valid email address');
+    }
+    
+    // Show validation message
+    email.reportValidity();
+  }
+});
+
+// Clear custom validity when user types
+email.addEventListener('input', function() {
+  email.setCustomValidity('');
+});
+</script>`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Validation Properties & Methods</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">validity</code>: Object with validation state properties</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">validationMessage</code>: Browser's error message</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">checkValidity()</code>: Returns true if valid</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">reportValidity()</code>: Shows validation message</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">setCustomValidity()</code>: Sets custom error message</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">willValidate</code>: Indicates if element will be validated</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

@@ -1,0 +1,104 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Input Types
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      HTML5 introduced many new input types that provide better user experience, validation, and mobile support. Each input type serves a specific purpose and triggers appropriate keyboard layouts on mobile devices.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Common Input Types</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- Text inputs -->
+<input type="text" placeholder="Enter text">
+<input type="email" placeholder="email@example.com">
+<input type="password" placeholder="Enter password">
+<input type="tel" placeholder="Phone number">
+<input type="url" placeholder="https://example.com">
+<input type="search" placeholder="Search...">
+
+<!-- Number and range -->
+<input type="number" min="1" max="100" step="1">
+<input type="range" min="0" max="100" value="50">
+
+<!-- Date and time -->
+<input type="date">
+<input type="time">
+<input type="datetime-local">
+<input type="month">
+<input type="week">
+
+<!-- Color picker -->
+<input type="color" value="#ff0000">
+
+<!-- File upload -->
+<input type="file" accept=".jpg,.png,.pdf">
+
+<!-- Hidden input -->
+<input type="hidden" name="user_id" value="123">`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Selection Inputs</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- Checkbox -->
+<label>
+  <input type="checkbox" name="interests" value="sports"> Sports
+</label>
+<label>
+  <input type="checkbox" name="interests" value="music"> Music
+</label>
+
+<!-- Radio buttons -->
+<label>
+  <input type="radio" name="gender" value="male"> Male
+</label>
+<label>
+  <input type="radio" name="gender" value="female"> Female
+</label>
+
+<!-- Select with options -->
+<select name="country">
+  <option value="">Select country</option>
+  <option value="us">United States</option>
+  <option value="ca">Canada</option>
+  <option value="uk">United Kingdom</option>
+</select>
+
+<!-- Multiple select -->
+<select name="languages" multiple>
+  <option value="html">HTML</option>
+  <option value="css">CSS</option>
+  <option value="js">JavaScript</option>
+</select>
+
+<!-- Datalist for suggestions -->
+<input list="browsers" name="browser">
+<datalist id="browsers">
+  <option value="Chrome">
+  <option value="Firefox">
+  <option value="Safari">
+</datalist>`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Input Attributes</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">placeholder</code>: Hint text</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">required</code>: Mandatory field</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">pattern</code>: Regex validation</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">min/max</code>: Value constraints</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">step</code>: Increment value</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">autocomplete</code>: Browser autofill</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">readonly</code> vs <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">disabled</code></li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

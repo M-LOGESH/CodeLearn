@@ -1,0 +1,64 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="c">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Functions in C
+  </h1>
+
+  <section class=" space-y-6 mb-5 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Functions are blocks of code that perform specific tasks. They help in organizing code, reducing redundancy, and making programs more modular and readable.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Function Definition and Call</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`#include <stdio.h>
+
+// Function declaration
+int add(int a, int b);
+
+int main() {
+    int result = add(5, 3);  // Function call
+    printf("Sum: %d\\n", result);
+    return 0;
+}
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Void Function Example</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`#include <stdio.h>
+
+// Void function - doesn't return a value
+void greet(char name[]) {
+    printf("Hello, %s!\\n", name);
+}
+
+int main() {
+    greet("Alice");
+    greet("Bob");
+    return 0;
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Function Components</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Function Declaration</strong>: Tells compiler about function name, return type, and parameters</li>
+        <li><strong class="text-custom-primary">Function Definition</strong>: Contains the actual code of the function</li>
+        <li><strong class="text-custom-primary">Function Call</strong>: Executes the function</li>
+        <li><strong class="text-custom-primary">Parameters</strong>: Values passed to the function</li>
+        <li><strong class="text-custom-primary">Return Value</strong>: Value returned by the function</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

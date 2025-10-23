@@ -1,0 +1,94 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Form Basics
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      HTML forms are used to collect user input. They contain various types of form controls like text fields, checkboxes, radio buttons, and submit buttons.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic Form Structure</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<form action="/submit-form" method="POST">
+  <!-- Text input -->
+  <label for="name">Full Name:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <!-- Email input -->
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  
+  <!-- Textarea -->
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" rows="4"></textarea>
+  
+  <!-- Select dropdown -->
+  <label for="country">Country:</label>
+  <select id="country" name="country">
+    <option value="">Select a country</option>
+    <option value="us">United States</option>
+    <option value="ca">Canada</option>
+    <option value="uk">United Kingdom</option>
+  </select>
+  
+  <!-- Submit button -->
+  <button type="submit">Send Message</button>
+</form>`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Form Attributes & Methods</h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-custom text-sm sm:text-base">
+        <thead>
+          <tr class="bg-custom-secondary">
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Attribute</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Description</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Values</th>
+          </tr>
+        </thead>
+        <tbody class="text-custom-secondary">
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>action</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Where to send form data</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">URL or file path</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>method</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">HTTP method for submission</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">GET or POST</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>enctype</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Encoding type for data</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">application/x-www-form-urlencoded, multipart/form-data</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>target</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Where to display response</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">_self, _blank, _parent, _top</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Form Best Practices</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Always use <strong class="text-custom-primary">&lt;label&gt;</strong> elements with <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">for</code> attribute</li>
+        <li>Use <strong class="text-custom-primary">fieldset</strong> and <strong class="text-custom-primary">legend</strong> for grouped inputs</li>
+        <li>Include <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">required</code> attribute for mandatory fields</li>
+        <li>Use appropriate <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">input types</code> for better UX</li>
+        <li>Provide clear error messages and validation feedback</li>
+        <li>Ensure forms are accessible with proper ARIA attributes</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

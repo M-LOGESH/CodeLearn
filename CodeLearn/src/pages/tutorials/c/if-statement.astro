@@ -1,0 +1,61 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="c">
+  <h1 class="text-2xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    If Statement in C
+  </h1>
+
+  <section class="space-y-6 mb-5 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      The if statement is used for decision-making in C programming. It allows you to execute certain code blocks based on specified conditions.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic If Statement</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`#include <stdio.h>
+
+int main() {
+    int number = 10;
+    
+    if (number > 0) {
+        printf("The number is positive.\\n");
+    }
+    
+    return 0;
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">If-Else Statement</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`#include <stdio.h>
+
+int main() {
+    int number = -5;
+    
+    if (number >= 0) {
+        printf("The number is non-negative.\\n");
+    } else {
+        printf("The number is negative.\\n");
+    }
+    
+    return 0;
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Key Points</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>The condition in if statement must be enclosed in parentheses</li>
+        <li>Code blocks are enclosed in curly braces {}</li>
+        <li>If there's only one statement, braces are optional but recommended</li>
+        <li>Conditions evaluate to true (non-zero) or false (zero)</li>
+        <li>Use logical operators (&&, ||) for complex conditions</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

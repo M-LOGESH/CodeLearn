@@ -1,0 +1,141 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Python Lists
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Lists are ordered, mutable collections that can hold items of different data types. They are one of Python's most versatile and commonly used data structures.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">List Creation & Basic Operations</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Creating lists
+empty_list = []
+numbers = [1, 2, 3, 4, 5]
+mixed_list = [1, "hello", 3.14, True]
+nested_list = [[1, 2], [3, 4]]
+
+# Accessing elements
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0])    # apple
+print(fruits[-1])   # cherry (last element)
+
+# Slicing lists
+numbers = [0, 1, 2, 3, 4, 5]
+print(numbers[1:4])    # [1, 2, 3]
+print(numbers[:3])     # [0, 1, 2]
+print(numbers[3:])     # [3, 4, 5]
+print(numbers[::2])    # [0, 2, 4] (step of 2)
+print(numbers[::-1])   # [5, 4, 3, 2, 1, 0] (reverse)
+
+# Modifying lists
+fruits = ["apple", "banana", "cherry"]
+fruits[1] = "blueberry"
+print(fruits)  # ['apple', 'blueberry', 'cherry']
+
+# List methods for adding elements
+fruits.append("orange")        # Add to end
+fruits.insert(1, "mango")      # Insert at index
+fruits.extend(["grape", "kiwi"]) # Add multiple items
+
+print(fruits)  # ['apple', 'mango', 'blueberry', 'cherry', 'orange', 'grape', 'kiwi']
+
+# List methods for removing elements
+fruits.remove("blueberry")     # Remove first occurrence
+popped = fruits.pop()          # Remove and return last item
+popped_index = fruits.pop(1)   # Remove and return item at index
+# fruits.clear()               # Remove all items
+
+print(f"Removed: {popped}, Remaining: {fruits}")
+
+# Other list methods
+numbers = [1, 2, 3, 2, 4, 2]
+print(numbers.index(2))        # 1 (first occurrence)
+print(numbers.count(2))        # 3 (count occurrences)
+numbers.sort()                 # Sort in place
+numbers.reverse()              # Reverse in place
+
+# List comprehension (powerful feature)
+squares = [x**2 for x in range(1, 6)]
+print(squares)  # [1, 4, 9, 16, 25]
+
+even_squares = [x**2 for x in range(1, 11) if x % 2 == 0]
+print(even_squares)  # [4, 16, 36, 64, 100]`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">List Operations & Functions</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# List operations
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+combined = list1 + list2       # Concatenation
+print(combined)  # [1, 2, 3, 4, 5, 6]
+
+repeated = list1 * 3           # Repetition
+print(repeated)  # [1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+# Membership testing
+fruits = ["apple", "banana", "cherry"]
+print("apple" in fruits)    # True
+print("grape" not in fruits) # True
+
+# Built-in functions with lists
+numbers = [3, 1, 4, 1, 5, 9, 2]
+
+print(len(numbers))      # 7 - length
+print(min(numbers))      # 1 - minimum
+print(max(numbers))      # 9 - maximum
+print(sum(numbers))      # 25 - sum
+
+# Copying lists (important!)
+original = [1, 2, 3]
+shallow_copy = original.copy()      # Method 1
+shallow_copy2 = original[:]         # Method 2
+shallow_copy3 = list(original)      # Method 3
+
+# Be careful with nested lists
+nested_original = [[1, 2], [3, 4]]
+shallow_nested = nested_original.copy()
+shallow_nested[0][0] = 99  # Affects both!
+print(nested_original)  # [[99, 2], [3, 4]]
+
+# Looping through lists
+fruits = ["apple", "banana", "cherry"]
+
+# By value
+for fruit in fruits:
+    print(fruit)
+
+# By index and value
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# List unpacking
+coordinates = [10, 20, 30]
+x, y, z = coordinates
+print(f"x={x}, y={y}, z={z}")`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">List Characteristics</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Ordered</strong>: Elements maintain their order</li>
+        <li><strong class="text-custom-primary">Mutable</strong>: Can be modified after creation</li>
+        <li><strong class="text-custom-primary">Heterogeneous</strong>: Can contain different data types</li>
+        <li><strong class="text-custom-primary">Dynamic</strong>: Can grow and shrink as needed</li>
+        <li><strong class="text-custom-primary">Indexed</strong>: Access elements by position (0-based)</li>
+        <li>Use list comprehensions for concise transformations</li>
+        <li>Be mindful of shallow vs deep copying with nested lists</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

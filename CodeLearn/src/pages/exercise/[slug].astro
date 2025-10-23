@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import programsData from '../../data/exercise/exercisePrograms.js';
+
+type Program = { number: number; title: string; slug: string };
+type ProgramsData = {
+  c: Program[];
+  html: Program[];
+  javascript: Program[];
+};
+
+// Type guard to check if slug is valid
+function isValidSlug(slug: string): slug is keyof ProgramsData {
+  return slug in programsData;
+}
+
+// Tell Astro which slugs exist
+export async function getStaticPaths() {
+  return Object.keys(programsData).map(slug => ({
+    params: { slug }
+  }));
+}
+
+const slug: string = Astro.params.slug as string;
+const programs: Program[] = isValidSlug(slug) ? programsData[slug] : [];
+
+// Split programs into ranges of 20 for dropdown
+const programRanges = [];
+const rangeSize = 20;
+for (let i = 0; i < programs.length; i += rangeSize) {
+  programRanges.push({
+    start: programs[i].number,
+    end: programs[Math.min(i + rangeSize - 1, programs.length - 1)].number
+  });
+}
+
+const allPrograms: Program[] = programs;
+---
+
+<BaseLayout>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </head>
+
+  <div class="px-4 py-10 space-y-10 text-left">
+
+    <section>
+      <div class="flex flex-row items-center justify-between mb-4 gap-3 flex-wrap sm:flex-nowrap">
+        <h2 class="text-xl font-bold text-custom-accent whitespace-nowrap">All Programs</h2>
+        <select
+          id="programJump"
+          class="w-[60%] sm:w-64 p-2 bg-custom-secondary text-custom-primary rounded border-custom"
+          onchange="
+            const id = this.value;
+            if (id) {
+              const el = document.getElementById(id);
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              this.selectedIndex = 0;
+            }
+          "
+        >
+          <option value="" hidden selected>Select Range</option>
+          {programRanges.map(range => (
+            <option value={`program-${range.start}`}>
+              Programs {range.start}–{range.end}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div class="space-y-2 sm:w-130">
+        {allPrograms.map(p => (
+          <a
+            id={`program-${p.number}`}
+            href={`/exercise/${slug}/${p.slug}`}
+            class="block px-8 py-2 bg-custom-secondary hover:bg-gray-600 rounded text-custom-primary transition border-custom"
+          >
+            Program {p.number}: {p.title}
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <button
+    id="scrollToTopBtn"
+    class="fixed bottom-6 right-6 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-cyan-600 text-white shadow-lg hover:bg-cyan-700 transition-all opacity-0 invisible z-50"
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    aria-label="Scroll to top"
+  >
+    <i class="fas fa-arrow-up text-base md:text-xl"></i>
+  </button>
+
+  <script is:inline>
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.remove('opacity-0', 'invisible');
+      } else {
+        scrollBtn.classList.add('opacity-0', 'invisible');
+      }
+    });
+  </script>
+</BaseLayout>

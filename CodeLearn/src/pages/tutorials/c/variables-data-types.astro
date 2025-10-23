@@ -1,0 +1,94 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="c">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Variables & Data Types in C
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Variables are used to store data in a program, and data types define the type of data that can be stored in variables.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic Data Types</h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-custom text-sm sm:text-base">
+        <thead>
+          <tr class="bg-custom-secondary">
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Data Type</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Size (bytes)</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Description</th>
+          </tr>
+        </thead>
+        <tbody class="text-custom-secondary">
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">int</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">4</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Stores integers</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">float</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">4</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Stores single-precision floating point numbers</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">double</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">8</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Stores double-precision floating point numbers</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">char</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">1</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Stores a single character</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Variable Declaration and Initialization</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`#include <stdio.h>
+
+int main() {
+    // Variable declaration
+    int age;
+    float salary;
+    char grade;
+    
+    // Variable initialization
+    age = 25;
+    salary = 50000.50;
+    grade = 'A';
+    
+    // Declaration and initialization in one line
+    int score = 95;
+    double percentage = 85.75;
+    
+    // Printing variables
+    printf("Age: %d\\n", age);
+    printf("Salary: %.2f\\n", salary);
+    printf("Grade: %c\\n", grade);
+    printf("Score: %d\\n", score);
+    printf("Percentage: %.2f\\n", percentage);
+    
+    return 0;
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Key Points</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Variables must be declared before use</li>
+        <li>C is case-sensitive (age and Age are different)</li>
+        <li>Variable names can contain letters, digits, and underscores</li>
+        <li>Variable names cannot start with a digit</li>
+        <li>Use meaningful variable names for better code readability</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

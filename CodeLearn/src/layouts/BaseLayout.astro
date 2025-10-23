@@ -1,0 +1,75 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeLearn</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    
+    <!-- Critical theme script - prevents FOUC -->
+    <script is:inline>
+      (function() {
+        try {
+          // Get theme from localStorage or default to light
+          var savedTheme = localStorage.getItem('theme');
+          if (!savedTheme) {
+            // Check system preference if no saved theme
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              savedTheme = 'dark';
+            } else {
+              savedTheme = 'light';
+            }
+            localStorage.setItem('theme', savedTheme);
+          }
+          
+          // Apply theme immediately
+          document.documentElement.setAttribute('data-theme', savedTheme);
+          document.documentElement.style.setProperty('--theme-applied', 'true');
+          
+          // Add to window for global access
+          window.__initialTheme = savedTheme;
+          
+        } catch (e) {
+          console.error('Theme initialization error:', e);
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+    
+    <!-- Hide content until theme is applied -->
+    <style is:inline>
+      /* Critical CSS to prevent flicker */
+      body {
+        opacity: 0;
+        transition: opacity 0.1s ease-in;
+      }
+      
+      body.theme-loaded {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 space-y-5 min-h-screen">
+      <slot />
+    </main>
+    <Footer />
+    
+    <!-- Show body after theme is definitely applied -->
+    <script is:inline>
+      document.body.classList.add('theme-loaded');
+    </script>
+    
+    <script src="/scripts/global.js" type="module"></script>
+  </body>
+</html>

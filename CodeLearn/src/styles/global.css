@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #f5f5f4;
+  --bg-secondary: #ffffff;
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+  --accent-color: #0e7490;
+  --border-color: #e7e5e4;
+  --header-bg: linear-gradient(to right, #0e7490, #0891b2, #155e75);
+  --mobile-menu-bg: #ffffff;
+  --mobile-menu-text: #1c1917;
+  --mobile-menu-hover: #06b6d4;
+  --link-hover: #0e7490;
+  
+  /* Sidebar and breadcrumb specific colors - Light theme */
+  --sidebar-bg: #f4f4f5; 
+  --sidebar-text: #1c1917; 
+  --breadcrumb-bg: #f4f4f5; 
+  --breadcrumb-text: #1c1917; 
+  --sidebar-border: #a1a1aa; 
+  --sidebar-hover-bg: #d4d4d8; 
+  --sidebar-hover-text: #1c1917; 
+  --breadcrumb-secondary-text: #374151; 
+  
+  /* Scrollbar colors - Light theme */
+  --scrollbar-track: #e5e5e5;
+  --scrollbar-thumb: #a1a1aa;
+  --scrollbar-thumb-hover: #71717a;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1c1917;
+  --bg-secondary: #292524;
+  --text-primary: #f5f5f4;
+  --text-secondary: #d6d3d1;
+  --accent-color: #22d3ee;
+  --border-color: #44403c;
+  --header-bg: linear-gradient(to right, #164e63, #0e7490, #083344);
+  --mobile-menu-bg: #292524;
+  --mobile-menu-text: #f5f5f4;
+  --mobile-menu-hover: #0891b2;
+  --link-hover: #22d3ee;
+  
+  /* Sidebar and breadcrumb specific colors - Dark theme */
+  --sidebar-bg: #1f2937; 
+  --sidebar-text: #f9fafb;
+  --breadcrumb-bg: #1f2937; 
+  --breadcrumb-text: #f9fafb;
+  --sidebar-border: #4b5563; 
+  --sidebar-hover-bg: #374151; 
+  --sidebar-hover-text: #f9fafb;
+  --breadcrumb-secondary-text: #d1d5db; 
+  
+  /* Scrollbar colors - Dark theme */
+  --scrollbar-track: #374151;
+  --scrollbar-thumb: #6b7280;
+  --scrollbar-thumb-hover: #9ca3af;
+}
+
+/* Apply the CSS variables */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.bg-custom-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-custom-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.text-custom-primary {
+  color: var(--text-primary);
+}
+
+.text-custom-secondary {
+  color: var(--text-secondary);
+}
+
+.text-custom-accent {
+  color: var(--accent-color);
+}
+
+.border-custom {
+  border-color: var(--border-color);
+}
+
+.header-gradient {
+  background: var(--header-bg);
+}
+
+/* Sidebar and breadcrumb specific classes */
+.sidebar-bg {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+}
+
+.breadcrumb-bg {
+  background-color: var(--breadcrumb-bg);
+  color: var(--breadcrumb-text);
+}
+
+.sidebar-border {
+  border-color: var(--sidebar-border);
+}
+
+.sidebar-hover:hover {
+  background-color: var(--sidebar-hover-bg);
+  color: var(--sidebar-hover-text);
+}
+
+.breadcrumb-secondary {
+  color: var(--breadcrumb-secondary-text);
+}
+
+/* Custom Scrollbar for Sidebar */
+.sidebar-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+.sidebar-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 4px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 4px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  background-color: var(--mobile-menu-bg);
+  color: var(--mobile-menu-text);
+}
+
+.mobile-menu-link {
+  color: var(--mobile-menu-text);
+}
+
+.theme-divider {
+  border-color: var(--border-color);
+}
+
+/* Search input */
+.search-input {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Search button hover */
+#searchBtn:hover {
+  color: var(--text-primary);
+}
+
+/* Policy links */
+.policy-container a {
+  color: var(--text-secondary);
+}
+
+.policy-container a:hover {
+  color: var(--link-hover);
+}
+
+/* Custom nav underline */
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.rotated {
+  transform: rotate(90deg);
+}
+
+/* Keep this if you want the mobile search animation */
+@media (max-width: 400px) {
+  .search-input {
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    width: 160px;
+  }
+
+  .search-input.active {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+

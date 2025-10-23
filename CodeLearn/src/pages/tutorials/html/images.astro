@@ -1,0 +1,91 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    HTML Images
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Images are essential for creating visually engaging web pages. HTML provides the <code>&lt;img&gt;</code> element to embed images, along with attributes for accessibility and responsive design.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic Image Syntax</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- Basic image -->
+<img src="image.jpg" alt="Description of the image">
+
+<!-- Image with dimensions -->
+<img src="photo.png" alt="A beautiful landscape" width="800" height="600">
+
+<!-- Responsive image -->
+<img src="banner.jpg" alt="Website banner" style="max-width: 100%; height: auto;">
+
+<!-- Image with caption using figure -->
+<figure>
+  <img src="chart.png" alt="Sales growth chart">
+  <figcaption>Figure 1: Quarterly sales growth</figcaption>
+</figure>
+
+<!-- Lazy loading image -->
+<img src="large-image.jpg" alt="Large image" loading="lazy">`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Image Attributes & Features</h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-custom text-sm sm:text-base">
+        <thead>
+          <tr class="bg-custom-secondary">
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Attribute</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Purpose</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Example</th>
+          </tr>
+        </thead>
+        <tbody class="text-custom-secondary">
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>src</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Image source URL</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>src="image.jpg"</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>alt</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Alternative text</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>alt="A cat"</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>width/height</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Image dimensions</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>width="400"</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>loading</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Loading behavior</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>loading="lazy"</code></td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>srcset</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Responsive images</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>srcset="img-320w.jpg 320w"</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Image Best Practices</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Always include descriptive <strong class="text-custom-primary">alt text</strong> for accessibility</li>
+        <li>Optimize images for web (appropriate format and size)</li>
+        <li>Use <strong class="text-custom-primary">srcset</strong> for responsive images</li>
+        <li>Specify <strong class="text-custom-primary">width</strong> and <strong class="text-custom-primary">height</strong> to prevent layout shifts</li>
+        <li>Use <strong class="text-custom-primary">loading="lazy"</strong> for below-fold images</li>
+        <li>Choose appropriate image formats (JPEG, PNG, WebP, AVIF)</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

@@ -1,0 +1,103 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="css">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Filters & Blend Modes
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      CSS filters and blend modes allow you to apply visual effects to elements, similar to image editing software. They can create stunning visual effects without needing image manipulation.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">CSS Filters</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`.image {
+  /* Blur effect */
+  filter: blur(5px);
+  
+  /* Brightness adjustment */
+  filter: brightness(150%); /* brighter */
+  filter: brightness(50%); /* darker */
+  
+  /* Contrast adjustment */
+  filter: contrast(200%);
+  
+  /* Grayscale */
+  filter: grayscale(100%); /* full grayscale */
+  filter: grayscale(0.5); /* 50% grayscale */
+  
+  /* Hue rotation */
+  filter: hue-rotate(90deg);
+  
+  /* Invert colors */
+  filter: invert(100%);
+  
+  /* Opacity */
+  filter: opacity(0.5);
+  
+  /* Saturate */
+  filter: saturate(200%);
+  
+  /* Sepia */
+  filter: sepia(100%);
+  
+  /* Drop shadow */
+  filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+  
+  /* Multiple filters */
+  filter: brightness(1.2) contrast(1.1) saturate(1.1);
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Blend Modes</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Background blend modes */
+.element {
+  background-image: 
+    linear-gradient(45deg, blue, red),
+    url('pattern.png');
+  background-blend-mode: multiply;
+}
+
+/* Mix blend mode - blends element with content behind it */
+.text {
+  color: white;
+  mix-blend-mode: difference;
+}
+
+/* Common blend modes */
+.overlay { mix-blend-mode: overlay; }
+.multiply { mix-blend-mode: multiply; }
+.screen { mix-blend-mode: screen; }
+.darken { mix-blend-mode: darken; }
+.lighten { mix-blend-mode: lighten; }
+.color-dodge { mix-blend-mode: color-dodge; }
+.color-burn { mix-blend-mode: color-burn; }
+.hard-light { mix-blend-mode: hard-light; }
+.soft-light { mix-blend-mode: soft-light; }
+.difference { mix-blend-mode: difference; }
+.exclusion { mix-blend-mode: exclusion; }
+.hue { mix-blend-mode: hue; }
+.saturation { mix-blend-mode: saturation; }
+.color { mix-blend-mode: color; }
+.luminosity { mix-blend-mode: luminosity; }`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Creative Applications</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Image effects</strong>: Create photo filters with CSS</li>
+        <li><strong class="text-custom-primary">Text effects</strong>: Use blend modes for creative typography</li>
+        <li><strong class="text-custom-primary">Overlays</strong>: Create color overlays with blend modes</li>
+        <li><strong class="text-custom-primary">Performance</strong>: Filters can be GPU-accelerated</li>
+        <li><strong class="text-custom-primary">Accessibility</strong>: Ensure sufficient contrast when using filters</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

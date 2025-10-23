@@ -1,0 +1,43 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="react">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    React Tutorials
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      <strong class="text-custom-primary">React</strong> is a popular JavaScript library for building user interfaces, particularly web applications. Developed by Facebook, React makes it painless to create interactive UIs.
+    </p>
+
+    <p>
+      React uses a component-based architecture and a virtual DOM for efficient updates. It allows developers to build large web applications that can change data without reloading the page.
+    </p>
+
+    <p>
+      In this tutorial series, you'll learn:
+    </p>
+
+    <ul class="list-disc list-inside space-y-2 pl-4">
+      <li>React components and JSX syntax</li>
+      <li>Props and state management</li>
+      <li>Event handling and forms</li>
+      <li>React Hooks and functional components</li>
+      <li>Component lifecycle and effects</li>
+      <li>Routing and state management</li>
+    </ul>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Why Learn React?</h2>
+      <p>
+        React is one of the most in-demand skills in web development. It's used by thousands of companies including Facebook, Instagram, Netflix, and Airbnb. React's component-based approach makes code reusable and maintainable.
+      </p>
+      <p class="mt-3">
+        With a huge ecosystem and strong community support, React continues to evolve with new features and best practices that make building complex applications more efficient.
+      </p>
+    </div>
+  </section>
+</SidebarLayout>

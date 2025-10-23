@@ -1,0 +1,76 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="css">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    CSS Selectors
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      CSS selectors are patterns used to select the HTML elements you want to style. Understanding selectors is fundamental to writing effective CSS.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic Selectors</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Element selector */
+p {
+  color: blue;
+}
+
+/* Class selector */
+.button {
+  background: #4CAF50;
+}
+
+/* ID selector */
+#header {
+  font-size: 2rem;
+}
+
+/* Universal selector */
+* {
+  margin: 0;
+  padding: 0;
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Combinator Selectors</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Descendant selector */
+div p {
+  color: red;
+}
+
+/* Child selector */
+ul > li {
+  list-style: none;
+}
+
+/* Adjacent sibling selector */
+h1 + p {
+  margin-top: 0;
+}
+
+/* General sibling selector */
+h1 ~ p {
+  color: gray;
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Selector Specificity</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Inline styles</strong>: 1000 points</li>
+        <li><strong class="text-custom-primary">ID selectors</strong>: 100 points</li>
+        <li><strong class="text-custom-primary">Class/attribute selectors</strong>: 10 points</li>
+        <li><strong class="text-custom-primary">Element selectors</strong>: 1 point</li>
+        <li>Higher specificity takes precedence in styling</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

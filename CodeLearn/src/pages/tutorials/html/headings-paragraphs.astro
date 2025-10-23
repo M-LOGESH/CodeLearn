@@ -1,0 +1,58 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Headings & Paragraphs
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Headings and paragraphs are the fundamental building blocks for organizing text content in HTML. They provide structure and hierarchy to your web pages.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">HTML Headings</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<h1>Main Heading - Most Important</h1>
+<h2>Subheading Level 2</h2>
+<h3>Subheading Level 3</h3>
+<h4>Subheading Level 4</h4>
+<h5>Subheading Level 5</h5>
+<h6>Subheading Level 6 - Least Important</h6>`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Text Formatting Elements</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<p>This is a regular paragraph of text.</p>
+
+<p>This text is <strong>bold and important</strong>.</p>
+<p>This text is <em>emphasized and italic</em>.</p>
+<p>This text is <mark>highlighted</mark> for attention.</p>
+<p>This text is <small>smaller in size</small>.</p>
+<p>This text is <del>deleted/strikethrough</del>.</p>
+<p>This text is <ins>inserted/underlined</ins>.</p>
+<p>This is <sub>subscript</sub> and this is <sup>superscript</sup>.</p>
+
+<!-- Line breaks and horizontal rules -->
+<p>First line<br>Second line after break</p>
+<hr>
+<p>Content after horizontal rule</p>`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Best Practices</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Use only one <strong class="text-custom-primary">&lt;h1&gt;</strong> per page for main title</li>
+        <li>Maintain proper heading hierarchy (don't skip levels)</li>
+        <li>Use <strong class="text-custom-primary">&lt;strong&gt;</strong> instead of &lt;b&gt; for importance</li>
+        <li>Use <strong class="text-custom-primary">&lt;em&gt;</strong> instead of &lt;i&gt; for emphasis</li>
+        <li>Keep paragraphs focused and concise</li>
+        <li>Use semantic elements for better accessibility</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

@@ -1,0 +1,131 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Python Tuples
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Tuples are ordered, immutable collections similar to lists, but once created, their elements cannot be changed. They're often used for fixed collections of items.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Tuple Creation & Basic Operations</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Creating tuples
+empty_tuple = ()
+single_item = (42,)  # Note the comma for single item
+numbers = (1, 2, 3, 4, 5)
+mixed = (1, "hello", 3.14, True)
+
+# Without parentheses (tuple packing)
+coordinates = 10, 20, 30
+print(coordinates)  # (10, 20, 30)
+
+# Accessing elements
+fruits = ("apple", "banana", "cherry")
+print(fruits[0])    # apple
+print(fruits[-1])   # cherry
+
+# Slicing tuples
+numbers = (0, 1, 2, 3, 4, 5)
+print(numbers[1:4])    # (1, 2, 3)
+print(numbers[:3])     # (0, 1, 2)
+print(numbers[3:])     # (3, 4, 5)
+
+# Tuple unpacking
+person = ("John", 25, "Engineer")
+name, age, profession = person
+print(f"Name: {name}, Age: {age}")  # Name: John, Age: 25
+
+# Multiple assignment (uses tuple unpacking)
+x, y, z = 10, 20, 30
+
+# Swapping variables (tuple unpacking)
+a, b = 5, 10
+a, b = b, a  # Now a=10, b=5
+
+# Returning multiple values from function
+def get_stats(numbers):
+    return min(numbers), max(numbers), sum(numbers)/len(numbers)
+
+min_val, max_val, avg_val = get_stats([1, 2, 3, 4, 5])
+print(f"Min: {min_val}, Max: {max_val}, Avg: {avg_val}")
+
+# Tuple methods
+colors = ("red", "green", "blue", "red")
+print(colors.count("red"))    # 2
+print(colors.index("green"))  # 1
+
+# Membership testing
+print("blue" in colors)       # True
+print("yellow" not in colors) # True`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">When to Use Tuples vs Lists</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Use tuples for:
+# 1. Fixed collections of related items
+person = ("Alice", 30, "alice@email.com")
+
+# 2. Dictionary keys (must be immutable)
+locations = {
+    (40.7128, -74.0060): "New York",
+    (34.0522, -118.2437): "Los Angeles"
+}
+
+# 3. Function arguments and return values
+def get_circle_data(radius):
+    area = 3.14159 * radius ** 2
+    circumference = 2 * 3.14159 * radius
+    return area, circumference  # Returns a tuple
+
+# 4. Data that shouldn't be changed
+days_of_week = ("Monday", "Tuesday", "Wednesday", "Thursday", 
+                "Friday", "Saturday", "Sunday")
+
+# Use lists for:
+# 1. Collections that need to change
+shopping_list = ["milk", "eggs", "bread"]
+shopping_list.append("butter")
+
+# 2. When you need to sort or rearrange
+scores = [85, 92, 78, 96]
+scores.sort()
+
+# 3. When you need to add/remove items frequently
+todo_list = ["task1", "task2"]
+todo_list.remove("task1")
+
+# Converting between tuples and lists
+tuple_data = (1, 2, 3)
+list_data = list(tuple_data)   # Convert to list
+tuple_again = tuple(list_data) # Convert back to tuple
+
+# Nested tuples and lists
+mixed_structure = ([1, 2, 3], ("a", "b", "c"), 42)
+mixed_structure[0].append(4)   # Can modify the list inside
+# mixed_structure[1][0] = "x"  # ERROR: can't modify tuple
+
+print(mixed_structure)  # ([1, 2, 3, 4], ('a', 'b', 'c'), 42)`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Tuple Advantages</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Immutable</strong>: Data integrity and safety</li>
+        <li><strong class="text-custom-primary">Faster</strong>: Generally faster than lists</li>
+        <li><strong class="text-custom-primary">Hashable</strong>: Can be used as dictionary keys</li>
+        <li><strong class="text-custom-primary">Memory efficient</strong>: Use less memory than lists</li>
+        <li><strong class="text-custom-primary">Intent clarity</strong>: Signals data shouldn't change</li>
+        <li>Use for fixed collections of heterogeneous data</li>
+        <li>Perfect for multiple return values from functions</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

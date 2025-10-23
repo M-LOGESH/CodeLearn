@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <section class="pt-5 lg:pt-15 bg-linear-to-br from-custom-accent/10 to-custom-secondary/5 rounded-3xl mt-6">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-xl sm:text-3xl lg:text-4xl font-bold text-custom-accent mb-2">
+        Contact Us
+      </h1>
+      <p class="text-xl sm:text-2xl text-custom-secondary leading-relaxed">
+        Get in touch with any questions or feedback
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="py-5">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-custom-accent mb-4">We'd Love to Hear From You</h2>
+        <p class="text-lg text-custom-secondary">
+          Have questions about our tutorials? Need help with your learning journey? Reach out to us.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Email -->
+        <div class="text-center">
+          <div class="w-16 h-16 bg-custom-accent/20 rounded-full flex items-center justify-center mx-auto">
+            <i class="fas fa-envelope text-custom-secondary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-custom-primary mb-2">Email Us</h3>
+          <p class="text-custom-secondary">hello@codelearn.com</p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="text-center">
+          <h3 class="text-xl font-semibold text-custom-primary mt-2 mb-4">Follow Us</h3>
+          <div class="flex justify-center space-x-6 text-2xl">
+            <a href="#" class="text-custom-secondary hover:text-custom-accent transition">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="text-custom-secondary hover:text-custom-accent transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-custom-secondary hover:text-custom-accent transition">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

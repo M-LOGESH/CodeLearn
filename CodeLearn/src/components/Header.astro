@@ -1,0 +1,77 @@
+---
+// No props required
+---
+
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full header-gradient text-white px-0 sm:px-1 py-3 sm:py-4 shadow-md z-50">
+  <div class="flex items-center justify-between px-2 sm:px-4">
+    <div class="flex items-center space-x-2 sm:space-x-4">
+      <!-- Hamburger menu - visible only on mobile -->
+      <button id="menuBtn" class="md:hidden focus:outline-none transition duration-300 transform text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" id="menuIcon"
+          class="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-300 ease-in-out"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- CodeLearn Text Logo -->
+      <a href="/" class="text-xl sm:text-2xl font-bold text-white hover:text-gray-200 transition-colors">
+        CodeLearn
+      </a>
+    </div>
+
+    <nav class="flex space-x-2 sm:space-x-4 items-center">
+      <!-- Navigation Links - hidden on mobile, visible on md and up -->
+      <div class="hidden md:flex space-x-2 sm:space-x-4 text-lg lg:text-xl font-Arial">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/tutorials" class="nav-link">Tutorials</a>
+        <a href="/exercise" class="nav-link">Exercise</a>
+      </div>
+
+      <!-- Search - visible on all screen sizes -->
+      <div class="relative ml-2 sm:ml-4">
+        <input id="searchInput" type="text" placeholder="Search..."
+          class="search-input pl-3 pr-10 py-1 rounded text-sm sm:text-base w-40 sm:w-auto" />
+        <button id="searchBtn"
+          class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Theme Toggle - visible on all screen sizes -->
+      <button id="themeToggle" class="ml-2 w-6 h-6 text-white">
+        <i id="iconTheme" class="fas fa-sun"></i>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Side Menu -->
+<div id="mobileMenu"
+  class="fixed top-12 sm:top-16 left-0 w-64 mobile-menu transform -translate-x-full transition-transform duration-300 ease-in-out z-50 p-6 space-y-4 shadow-2xl">
+
+  <a href="/" class="mobile-menu-link block text-lg transition hover:scale-105 hover:bg-cyan-500 rounded px-2 py-1">Home</a>
+  <a href="/tutorials" class="mobile-menu-link block text-lg transition hover:scale-105 hover:bg-cyan-500 rounded px-2 py-1">Tutorials</a>
+  <a href="/exercise" class="mobile-menu-link block text-lg transition hover:scale-105 hover:bg-cyan-500 rounded px-2 py-1">Exercise</a>
+  <a href="/about" class="mobile-menu-link block text-lg transition hover:scale-105 hover:bg-cyan-500 rounded px-2 py-1">About</a>
+  <a href="/contact" class="mobile-menu-link block text-lg transition hover:scale-105 hover:bg-cyan-500 rounded px-2 py-1">Contact</a>
+  <hr class="border-t-2 my-3 theme-divider" />
+
+  <div class="flex justify-start space-x-4">
+    <a href="#" class="hover:text-cyan-600 transition"><i class="fab fa-github fa-lg"></i></a>
+    <a href="#" class="hover:text-yanc-600 transition"><i class="fab fa-twitter fa-lg"></i></a>
+    <a href="#" class="hover:text-cyan-600 transition"><i class="fab fa-linkedin fa-lg"></i></a>
+  </div>
+
+  <div class="pt-4 border-t-2 theme-divider">
+    <div class="flex space-x-4 text-xs policy-container">
+      <a href="/privacy-policy" class="mobile-menu-link hover:text-cyan-600 transition">Privacy</a>
+      <a href="/terms" class="mobile-menu-link hover:text-cyan-600 transition">Terms</a>
+    </div>
+  </div>
+</div>

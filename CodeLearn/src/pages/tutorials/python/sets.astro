@@ -1,0 +1,139 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Python Sets
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Sets are unordered collections of unique elements. They're useful for membership testing, removing duplicates, and mathematical operations like union, intersection, and difference.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Set Creation & Basic Operations</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Creating sets
+empty_set = set()  # Note: {} creates empty dict
+numbers = {1, 2, 3, 4, 5}
+mixed_set = {1, "hello", 3.14, True}
+
+# From other sequences
+from_list = set([1, 2, 2, 3, 3, 4])  # {1, 2, 3, 4}
+from_string = set("hello")            # {'h', 'e', 'l', 'o'}
+
+# Set operations
+set1 = {1, 2, 3, 4, 5}
+set2 = {4, 5, 6, 7, 8}
+
+# Union (elements in either set)
+union_set = set1 | set2           # Method 1
+union_set = set1.union(set2)      # Method 2
+print(union_set)  # {1, 2, 3, 4, 5, 6, 7, 8}
+
+# Intersection (elements in both sets)
+intersection_set = set1 & set2        # Method 1
+intersection_set = set1.intersection(set2)  # Method 2
+print(intersection_set)  # {4, 5}
+
+# Difference (elements in set1 but not set2)
+difference_set = set1 - set2          # Method 1
+difference_set = set1.difference(set2)     # Method 2
+print(difference_set)  # {1, 2, 3}
+
+# Symmetric difference (elements in either but not both)
+sym_diff = set1 ^ set2                # Method 1
+sym_diff = set1.symmetric_difference(set2)  # Method 2
+print(sym_diff)  # {1, 2, 3, 6, 7, 8}
+
+# Set methods for modification
+numbers = {1, 2, 3}
+numbers.add(4)              # Add single element
+numbers.update([5, 6, 7])   # Add multiple elements
+numbers.remove(3)           # Remove element (error if not exists)
+numbers.discard(10)         # Remove element (no error if not exists)
+popped = numbers.pop()      # Remove and return arbitrary element
+# numbers.clear()           # Remove all elements
+
+print(f"Numbers: {numbers}, Popped: {popped}")`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Set Operations & Use Cases</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Membership testing (very fast - O(1))
+fruits = {"apple", "banana", "cherry"}
+print("apple" in fruits)    # True
+print("grape" not in fruits) # True
+
+# Removing duplicates from a list
+numbers = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+unique_numbers = list(set(numbers))
+print(unique_numbers)  # [1, 2, 3, 4]
+
+# Set comparisons
+set_a = {1, 2, 3}
+set_b = {1, 2}
+set_c = {1, 2, 3, 4}
+
+print(set_b.issubset(set_a))     # True - all elements of b in a
+print(set_a.issuperset(set_b))   # True - a contains all elements of b
+print(set_a.isdisjoint({7, 8, 9})) # True - no common elements
+
+# Set comprehension
+squares = {x**2 for x in range(1, 6)}
+print(squares)  # {1, 4, 9, 16, 25}
+
+# Filtered set comprehension
+even_squares = {x**2 for x in range(1, 11) if x % 2 == 0}
+print(even_squares)  # {64, 4, 36, 100, 16}
+
+# Frozen sets (immutable sets)
+frozen = frozenset([1, 2, 3, 4])
+# frozen.add(5)  # ERROR: frozen sets are immutable
+
+# Useful for dictionary keys
+valid_configs = {
+    frozenset(["read", "write"]): "full_access",
+    frozenset(["read"]): "read_only"
+}
+
+# Practical examples
+# 1. Finding common elements between lists
+list1 = [1, 2, 3, 4, 5]
+list2 = [4, 5, 6, 7, 8]
+common = set(list1) & set(list2)
+print(f"Common elements: {common}")  # {4, 5}
+
+# 2. Finding unique elements
+all_elements = set(list1) | set(list2)
+print(f"All unique elements: {all_elements}")  # {1, 2, 3, 4, 5, 6, 7, 8}
+
+# 3. Finding elements in one list but not another
+only_in_list1 = set(list1) - set(list2)
+print(f"Only in list1: {only_in_list1}")  # {1, 2, 3}
+
+# 4. Counting unique words in text
+text = "hello world hello python world"
+unique_words = set(text.split())
+print(f"Unique words: {unique_words}")  # {'hello', 'world', 'python'}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Set Characteristics</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Unordered</strong>: No guaranteed order of elements</li>
+        <li><strong class="text-custom-primary">Unique elements</strong>: No duplicates allowed</li>
+        <li><strong class="text-custom-primary">Mutable</strong>: Can add/remove elements (except frozenset)</li>
+        <li><strong class="text-custom-primary">Elements must be hashable</strong>: Immutable types only</li>
+        <li><strong class="text-custom-primary">Fast operations</strong>: O(1) for membership testing</li>
+        <li>Use for membership testing and duplicate removal</li>
+        <li>Perfect for mathematical set operations</li>
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">frozenset</code> for immutable sets</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

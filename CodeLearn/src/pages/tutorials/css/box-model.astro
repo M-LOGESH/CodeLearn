@@ -1,0 +1,81 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="css">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    CSS Box Model
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      The CSS box model is the foundation of layout on the web. Every element is represented as a rectangular box, with content, padding, border, and margin areas.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Box Model Components</h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-custom text-sm sm:text-base">
+        <thead>
+          <tr class="bg-custom-secondary">
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Property</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Description</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Example</th>
+          </tr>
+        </thead>
+        <tbody class="text-custom-secondary">
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Content</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">The actual content of the element</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">width, height</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Padding</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Space between content and border</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">padding: 20px;</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Border</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Border around the padding</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">border: 1px solid;</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Margin</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Space outside the border</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">margin: 10px;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Box Model Example</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`.box {
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border: 2px solid #333;
+  margin: 15px;
+  background-color: #f0f0f0;
+}
+
+/* Box-sizing: border-box includes padding and border in width/height */
+.border-box {
+  box-sizing: border-box;
+  width: 300px; /* Total width including padding and border */
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Key Points</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Default box model adds padding and border to element's width</li>
+        <li><code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">box-sizing: border-box</code> includes padding and border in element dimensions</li>
+        <li>Margins collapse vertically between adjacent elements</li>
+        <li>Negative margins are allowed and can be useful for layout</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

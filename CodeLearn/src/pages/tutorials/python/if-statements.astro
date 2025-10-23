@@ -1,0 +1,121 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    If Statements
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Conditional statements allow your program to make decisions and execute different code blocks based on conditions. Python uses <code>if</code>, <code>elif</code>, and <code>else</code> statements for conditional logic.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic If Statements</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Simple if statement
+age = 18
+
+if age >= 18:
+    print("You are an adult")
+
+# if-else statement
+temperature = 25
+
+if temperature > 30:
+    print("It's hot outside")
+else:
+    print("It's not too hot")
+
+# if-elif-else chain
+score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "F"
+
+print(f"Your grade is: {grade}")
+
+# Nested if statements
+age = 25
+has_license = True
+
+if age >= 18:
+    if has_license:
+        print("You can drive")
+    else:
+        print("You need a license to drive")
+else:
+    print("You are too young to drive")`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Conditional Expressions & Operators</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Multiple conditions with logical operators
+age = 25
+income = 50000
+
+if age >= 18 and income > 30000:
+    print("You qualify for the loan")
+
+# Using 'or' operator
+day = "Saturday"
+if day == "Saturday" or day == "Sunday":
+    print("It's the weekend!")
+
+# Using 'not' operator
+is_raining = False
+if not is_raining:
+    print("You don't need an umbrella")
+
+# Ternary operator (conditional expression)
+age = 20
+status = "adult" if age >= 18 else "minor"
+print(status)  # adult
+
+# Chained comparisons
+x = 15
+if 10 <= x <= 20:
+    print("x is between 10 and 20")
+
+# Checking multiple values
+fruit = "apple"
+if fruit in ["apple", "banana", "orange"]:
+    print("This is a common fruit")
+
+# Truthy and Falsy values
+name = ""
+if name:  # False if empty string
+    print(f"Hello, {name}")
+else:
+    print("Please enter your name")
+
+number = 0
+if number:  # False if 0
+    print("Number is non-zero")
+else:
+    print("Number is zero")`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Python Truthy & Falsy Values</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Falsy</strong>: <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">False, None, 0, 0.0, "", [], (), {}, set()</code></li>
+        <li><strong class="text-custom-primary">Truthy</strong>: Everything else</li>
+        <li>Use proper indentation (4 spaces) for code blocks</li>
+        <li>Avoid deep nesting - consider using functions</li>
+        <li>Use descriptive condition names for complex logic</li>
+        <li>Leverage <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">in</code> operator for membership testing</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

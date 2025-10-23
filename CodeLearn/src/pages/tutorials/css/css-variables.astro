@@ -1,0 +1,92 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="css">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    CSS Variables
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      CSS Custom Properties (CSS Variables) allow you to store values that can be reused throughout your stylesheet. They make CSS more maintainable and enable dynamic theming.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Defining and Using Variables</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Define variables in :root for global scope */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --font-size-base: 1rem;
+  --spacing-unit: 1rem;
+  --border-radius: 0.25rem;
+  --transition: all 0.3s ease;
+}
+
+/* Use variables with var() function */
+.button {
+  background-color: var(--primary-color);
+  padding: calc(var(--spacing-unit) * 2);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+/* Fallback values */
+.element {
+  color: var(--custom-color, #000); /* Use #000 if --custom-color not defined */
+}
+
+/* Local scope variables */
+.component {
+  --component-bg: #f8f9fa;
+  background: var(--component-bg);
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Dynamic Theming with Variables</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Light theme */
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #333333;
+  --accent-color: #007bff;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --text-primary: #ffffff;
+  --accent-color: #4dabf7;
+}
+
+/* Using the themes */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.button {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Toggle theme with JavaScript */
+// document.documentElement.setAttribute('data-theme', 'dark');`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Benefits of CSS Variables</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">Maintainability</strong>: Change values in one place</li>
+        <li><strong class="text-custom-primary">Dynamic theming</strong>: Switch themes without reloading</li>
+        <li><strong class="text-custom-primary">Scoping</strong>: Variables can be locally scoped</li>
+        <li><strong class="text-custom-primary">JavaScript integration</strong>: Easily manipulate with JS</li>
+        <li><strong class="text-custom-primary">Calculation support</strong>: Use with calc() function</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

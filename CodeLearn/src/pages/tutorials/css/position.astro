@@ -1,0 +1,101 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="css">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Position Property
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      The CSS position property determines how an element is positioned in the document. It's essential for creating overlays, fixed navigation, and complex layouts.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Position Values</h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-custom text-sm sm:text-base">
+        <thead>
+          <tr class="bg-custom-secondary">
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Value</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Description</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Use Case</th>
+          </tr>
+        </thead>
+        <tbody class="text-custom-secondary">
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">static</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Default position in normal flow</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Regular document flow</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">relative</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Positioned relative to its normal position</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Minor adjustments, z-index context</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">absolute</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Positioned relative to nearest positioned ancestor</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Overlays, tooltips, custom controls</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">fixed</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Positioned relative to viewport</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Fixed headers, modals, chat widgets</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">sticky</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Toggles between relative and fixed based on scroll</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Sticky headers, table headers</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Position Examples</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Relative positioning */
+.relative-box {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+
+/* Absolute positioning */
+.absolute-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Fixed positioning */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Sticky positioning */
+.sticky-element {
+  position: sticky;
+  top: 0;
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Key Concepts</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">z-index</strong> controls stacking order of positioned elements</li>
+        <li>Absolute elements are positioned relative to their nearest positioned ancestor</li>
+        <li>Fixed elements don't move when the page scrolls</li>
+        <li>Sticky elements need a threshold value (top, bottom, etc.)</li>
+        <li>Positioned elements create a new stacking context</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

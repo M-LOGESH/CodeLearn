@@ -1,0 +1,222 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="py-5 lg:py-20 bg-linear-to-br from-custom-accent/10 to-custom-secondary/5 rounded-3xl mt-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-2xl sm:text-5xl lg:text-6xl font-bold text-custom-accent mb-6">
+          Master <span class="text-custom-primary">Programming</span> with Interactive Learning
+        </h1>
+        <p class="text-lg sm:text-2xl text-custom-secondary max-w-3xl mx-auto mb-8 leading-relaxed">
+          Learn to code through comprehensive tutorials, hands-on projects, and real-world examples. From beginner to advanced, we've got you covered.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="/tutorials" class="px-5 py-3 sm:px-8 sm:py-4 bg-cyan-700 text-white rounded-xl font-semibold text-base sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+            Start Learning Free
+          </a>
+          <a href="#courses" class="px-5 py-3 sm:px-8 sm:py-4 border-2 border-custom-accent text-custom-accent rounded-xl font-semibold text-base sm:text-lg hover:bg-custom-accent hover:text-white transition-all duration-300">
+            Browse Courses
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div class="bg-custom-secondary rounded-2xl p-6 border border-custom">
+          <div class="text-xl sm:text-3xl font-bold text-custom-accent mb-2">50+</div>
+          <div class="text-custom-secondary">Tutorials</div>
+        </div>
+        <div class="bg-custom-secondary rounded-2xl p-6 border border-custom">
+          <div class="text-xl sm:text-3xl font-bold text-custom-accent mb-2">10+</div>
+          <div class="text-custom-secondary">Programming Languages</div>
+        </div>
+        <div class="bg-custom-secondary rounded-2xl p-6 border border-custom">
+          <div class="text-xl sm:text-3xl font-bold text-custom-accent mb-2">1000+</div>
+          <div class="text-custom-secondary">Code Examples</div>
+        </div>
+        <div class="bg-custom-secondary rounded-2xl p-6 border border-custom">
+          <div class="text-xl sm:text-3xl font-bold text-custom-accent mb-2">24/7</div>
+          <div class="text-custom-secondary">Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Courses Section -->
+  <section id="courses" class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-xl sm:text-3xl font-bold text-custom-accent mb-4">Popular Learning Paths</h2>
+        <p class="text-xl text-custom-secondary max-w-2xl mx-auto">
+          Choose your learning journey with our structured courses
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Web Development Card -->
+        <div class="bg-custom-secondary rounded-2xl p-8 border border-custom hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
+          <div class="w-16 h-16 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-code text-blue-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-custom-primary mb-4">Web Development</h3>
+          <p class="text-custom-secondary mb-6 leading-relaxed">
+            Master HTML, CSS, JavaScript and modern frameworks to build responsive websites and web applications.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              HTML & CSS Fundamentals
+            </li>
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              JavaScript & React
+            </li>
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              Backend with Node.js
+            </li>
+          </ul>
+          <a href="/tutorials/html" class="inline-flex items-center text-custom-accent font-semibold hover:underline">
+            Start Learning
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Python & Data Science Card -->
+        <div class="bg-custom-secondary rounded-2xl p-8 border border-custom hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
+          <div class="w-16 h-16 bg-green-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fab fa-python text-green-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-custom-primary mb-4">Python & Data Science</h3>
+          <p class="text-custom-secondary mb-6 leading-relaxed">
+            Learn Python programming, data analysis, and machine learning with hands-on projects and real datasets.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              Python Basics & OOP
+            </li>
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              Data Analysis with Pandas
+            </li>
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              Web Development with Django
+            </li>
+          </ul>
+          <a href="/tutorials/python" class="inline-flex items-center text-custom-accent font-semibold hover:underline">
+            Start Learning
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- C Programming Card -->
+        <div class="bg-custom-secondary rounded-2xl p-8 border border-custom hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group">
+          <div class="w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i class="fas fa-cogs text-purple-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-custom-primary mb-4">C Programming</h3>
+          <p class="text-custom-secondary mb-6 leading-relaxed">
+            Master the fundamentals of C programming, memory management, and system-level programming concepts.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              C Syntax & Data Types
+            </li>
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              Pointers & Memory Management
+            </li>
+            <li class="flex items-center text-custom-secondary">
+              <span class="w-2 h-2 bg-custom-accent rounded-full mr-3"></span>
+              File Handling & Algorithms
+            </li>
+          </ul>
+          <a href="/tutorials/c" class="inline-flex items-center text-custom-accent font-semibold hover:underline">
+            Start Learning
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-8 bg-linear-to-br from-custom-secondary/30 to-custom-accent/10 rounded-3xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-xl sm:text-3xl font-bold text-custom-accent mb-4">Why Learn With CodeLearn?</h2>
+        <p class="text-xl text-custom-secondary max-w-2xl mx-auto">
+          Our platform is designed to make learning programming effective and enjoyable
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-custom-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-graduation-cap text-custom-accent text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-custom-primary mb-3">Structured Learning</h3>
+          <p class="text-custom-secondary">Step-by-step tutorials that build upon each other</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 bg-custom-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-laptop-code text-custom-accent text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-custom-primary mb-3">Hands-on Practice</h3>
+          <p class="text-custom-secondary">Interactive code examples and exercises</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 bg-custom-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-rocket text-custom-accent text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-custom-primary mb-3">Real Projects</h3>
+          <p class="text-custom-secondary">Build portfolio-worthy projects</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 bg-custom-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-sync-alt text-custom-accent text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-custom-primary mb-3">Always Updated</h3>
+          <p class="text-custom-secondary">Content regularly updated with latest trends</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-xl sm:text-3xl  font-bold text-custom-accent mb-6">Ready to Start Your Coding Journey?</h2>
+      <p class="text-xl text-custom-secondary mb-8 max-w-2xl mx-auto">
+        Join thousands of developers who have transformed their careers with CodeLearn
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/tutorials" class="px-5 py-3 sm:px-8 sm:py-4 bg-cyan-600 text-white rounded-xl font-semibold text-sm sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+          Explore All Tutorials
+        </a>
+        <a href="#" class="px-5 py-3 sm:px-8 sm:py-4 border-2 border-custom-accent text-custom-accent rounded-xl font-semibold text-sm sm:text-lg hover:bg-custom-accent hover:text-white transition-all duration-300">
+          View Learning Paths
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

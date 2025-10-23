@@ -1,0 +1,87 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="css">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    CSS Transforms
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      CSS transforms allow you to visually manipulate elements by rotating, scaling, skewing, or translating them. Transforms don't affect the document flow, making them perfect for animations and interactive effects.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">2D Transforms</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`.element {
+  /* Translate - move element */
+  transform: translateX(50px);
+  transform: translateY(-20px);
+  transform: translate(50px, -20px);
+  
+  /* Scale - resize element */
+  transform: scale(1.5);
+  transform: scaleX(2);
+  transform: scaleY(0.5);
+  transform: scale(1.2, 0.8);
+  
+  /* Rotate - spin element */
+  transform: rotate(45deg);
+  transform: rotate(0.5turn); /* 180 degrees */
+  
+  /* Skew - distort element */
+  transform: skewX(15deg);
+  transform: skewY(10deg);
+  transform: skew(15deg, 10deg);
+  
+  /* Multiple transforms */
+  transform: translate(50px, 50px) rotate(45deg) scale(1.2);
+}`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">3D Transforms</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`/* Enable 3D transformations */
+.container {
+  perspective: 1000px; /* Creates 3D space */
+  transform-style: preserve-3d; /* For nested 3D elements */
+}
+
+.element {
+  /* 3D translation */
+  transform: translate3d(50px, 50px, 100px);
+  transform: translateZ(50px);
+  
+  /* 3D rotation */
+  transform: rotate3d(1, 1, 1, 45deg);
+  transform: rotateX(45deg);
+  transform: rotateY(30deg);
+  transform: rotateZ(15deg);
+  
+  /* 3D scale */
+  transform: scale3d(1.2, 1.2, 1.5);
+  
+  /* Complex 3D transform */
+  transform: 
+    perspective(500px)
+    rotateY(45deg)
+    translateZ(100px);
+}`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Transform Properties</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">transform-origin</strong>: Changes the origin point of transformations</li>
+        <li><strong class="text-custom-primary">perspective</strong>: Creates 3D space for child elements</li>
+        <li><strong class="text-custom-primary">backface-visibility</strong>: Controls visibility of back face in 3D</li>
+        <li><strong class="text-custom-primary">Performance</strong>: Transforms are GPU-accelerated</li>
+        <li><strong class="text-custom-primary">Order matters</strong>: Transform functions are applied in sequence</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

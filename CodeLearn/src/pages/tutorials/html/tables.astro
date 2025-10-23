@@ -1,0 +1,113 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    HTML Tables
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      HTML tables are used to display tabular data in rows and columns. While tables should not be used for page layout, they are perfect for presenting structured information like schedules, pricing, or statistics.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic Table Structure</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<table>
+  <caption>Monthly Sales Report</caption>
+  <thead>
+    <tr>
+      <th scope="col">Month</th>
+      <th scope="col">Product A</th>
+      <th scope="col">Product B</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">January</th>
+      <td>$1,000</td>
+      <td>$1,500</td>
+      <td>$2,500</td>
+    </tr>
+    <tr>
+      <th scope="row">February</th>
+      <td>$1,200</td>
+      <td>$1,800</td>
+      <td>$3,000</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th scope="row">Total</th>
+      <td>$2,200</td>
+      <td>$3,300</td>
+      <td>$5,500</td>
+    </tr>
+  </tfoot>
+</table>`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Advanced Table Features</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- Table with colspan and rowspan -->
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Name</th>
+      <th colspan="2">Contact Information</th>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>john@example.com</td>
+      <td>123-456-7890</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Responsive table container -->
+<div style="overflow-x: auto;">
+  <table>
+    <!-- table content -->
+  </table>
+</div>
+
+<!-- Table with scope attributes -->
+<table>
+  <tr>
+    <th scope="col">Product</th>
+    <th scope="col">Price</th>
+    <th scope="col">Stock</th>
+  </tr>
+  <tr>
+    <th scope="row">Laptop</th>
+    <td>$999</td>
+    <td>15</td>
+  </tr>
+</table>`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Table Best Practices</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Use <strong class="text-custom-primary">&lt;thead&gt;</strong>, <strong class="text-custom-primary">&lt;tbody&gt;</strong>, and <strong class="text-custom-primary">&lt;tfoot&gt;</strong> for structure</li>
+        <li>Include <strong class="text-custom-primary">&lt;caption&gt;</strong> for table description</li>
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">scope</code> attribute for accessibility</li>
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">colspan</code> and <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">rowspan</code> sparingly</li>
+        <li>Make tables responsive with overflow containers</li>
+        <li>Use tables only for tabular data, not for layout</li>
+        <li>Provide alternative text for complex tables</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

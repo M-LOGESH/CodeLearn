@@ -1,0 +1,80 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    HTML Structure
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Every HTML document follows a specific structure that tells browsers how to interpret and display the content. Understanding this structure is fundamental to writing proper HTML.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic HTML Document Structure</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Web Page</title>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>This is a paragraph of text.</p>
+</body>
+</html>`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">HTML Document Components</h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full border-collapse border border-custom text-sm sm:text-base">
+        <thead>
+          <tr class="bg-custom-secondary">
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Element</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Purpose</th>
+            <th class="border border-custom px-3 py-2 sm:px-4 sm:py-2 text-custom-primary">Description</th>
+          </tr>
+        </thead>
+        <tbody class="text-custom-secondary">
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>&lt;!DOCTYPE html&gt;</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Document Type</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Declares HTML5 document type</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>&lt;html&gt;</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Root Element</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Container for all HTML content</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>&lt;head&gt;</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Document Head</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Contains metadata and page information</td>
+          </tr>
+          <tr>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2"><code>&lt;body&gt;</code></td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Document Body</td>
+            <td class="border border-custom px-3 py-2 sm:px-4 sm:py-2">Contains visible page content</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Key Structural Elements</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li><strong class="text-custom-primary">&lt;!DOCTYPE html&gt;</strong> must be the first line</li>
+        <li><strong class="text-custom-primary">&lt;html&gt;</strong> element wraps all content</li>
+        <li><strong class="text-custom-primary">&lt;head&gt;</strong> contains metadata, title, and links to CSS/JS</li>
+        <li><strong class="text-custom-primary">&lt;body&gt;</strong> contains all visible content</li>
+        <li>Use proper indentation for better code readability</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

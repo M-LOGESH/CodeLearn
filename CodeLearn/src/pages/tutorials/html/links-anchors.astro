@@ -1,0 +1,77 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="html">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Links & Anchors
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Links (hyperlinks) are what make the web "web-like." They allow users to navigate between pages, jump to specific sections, and access external resources.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Basic Link Syntax</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- External link -->
+<a href="https://www.example.com">Visit Example.com</a>
+
+<!-- Internal link to another page -->
+<a href="about.html">About Us</a>
+
+<!-- Link opening in new tab -->
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">
+  Open in New Tab
+</a>
+
+<!-- Email link -->
+<a href="mailto:contact@example.com">Email Us</a>
+
+<!-- Phone link -->
+<a href="tel:+1234567890">Call Us</a>
+
+<!-- Download link -->
+<a href="document.pdf" download>Download PDF</a>`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Anchor Links & Page Navigation</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`<!-- Creating anchor points -->
+<section id="section1">
+  <h2>Section 1</h2>
+  <p>Content of section 1...</p>
+</section>
+
+<section id="section2">
+  <h2>Section 2</h2>
+  <p>Content of section 2...</p>
+</section>
+
+<!-- Navigation menu with anchor links -->
+<nav>
+  <a href="#section1">Jump to Section 1</a>
+  <a href="#section2">Jump to Section 2</a>
+  <a href="#">Back to Top</a>
+</nav>
+
+<!-- Link to specific section on another page -->
+<a href="page.html#specific-section">Go to Specific Section</a>`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Link Attributes & Best Practices</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Use descriptive link text (avoid "click here")</li>
+        <li>Add <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">rel="noopener noreferrer"</code> for security with <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">target="_blank"</code></li>
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">title</code> attribute for additional context</li>
+        <li>Make link destinations clear to users</li>
+        <li>Ensure color contrast meets accessibility standards</li>
+        <li>Test all links regularly</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>

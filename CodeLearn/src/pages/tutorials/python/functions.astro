@@ -1,0 +1,147 @@
+---
+import SidebarLayout from '../../../layouts/SidebarLayout.astro';
+import "../../../styles/global.css";
+---
+
+<SidebarLayout app="python">
+  <h1 class="text-xl sm:text-3xl font-bold mb-5 text-custom-accent text-center">
+    Python Functions
+  </h1>
+
+  <section class="mb-5 space-y-6 text-base sm:text-lg leading-relaxed text-custom-secondary">
+    <p>
+      Functions are reusable blocks of code that perform specific tasks. They help organize code, reduce repetition, and make programs more modular and maintainable.
+    </p>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Function Definition & Calling</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Basic function definition
+def greet():
+    print("Hello, World!")
+
+# Function call
+greet()  # Hello, World!
+
+# Function with parameters
+def greet_name(name):
+    print(f"Hello, {name}!")
+
+greet_name("Alice")  # Hello, Alice!
+
+# Function with return value
+def add_numbers(a, b):
+    return a + b
+
+result = add_numbers(5, 3)
+print(result)  # 8
+
+# Function with multiple parameters
+def introduce(name, age, city):
+    print(f"Name: {name}, Age: {age}, City: {city}")
+
+introduce("John", 25, "New York")
+
+# Default parameters
+def greet_person(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet_person("Alice")           # Hello, Alice!
+greet_person("Bob", "Hi")       # Hi, Bob!
+
+# Keyword arguments
+introduce(age=30, city="London", name="Sarah")
+
+# Variable number of arguments (*args)
+def sum_numbers(*args):
+    return sum(args)
+
+print(sum_numbers(1, 2, 3))     # 6
+print(sum_numbers(1, 2, 3, 4, 5)) # 15
+
+# Variable keyword arguments (**kwargs)
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="John", age=25, city="NYC")`}</code></pre>
+    </div>
+
+    <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mt-6 mb-3">Advanced Function Concepts</h2>
+
+    <div class="bg-custom-secondary border border-custom rounded-lg p-3 sm:p-4 my-4">
+      <pre class="text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap"><code>{`# Function with docstring
+def calculate_area(length, width):
+    """
+    Calculate the area of a rectangle.
+    
+    Args:
+        length (float): The length of the rectangle
+        width (float): The width of the rectangle
+    
+    Returns:
+        float: The area of the rectangle
+    """
+    return length * width
+
+# View docstring
+print(calculate_area.__doc__)
+
+# Lambda functions (anonymous functions)
+square = lambda x: x ** 2
+print(square(5))  # 25
+
+# Using lambda with map
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)  # [1, 4, 9, 16, 25]
+
+# Using lambda with filter
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # [2, 4]
+
+# Function returning multiple values
+def get_circle_info(radius):
+    area = 3.14159 * radius ** 2
+    circumference = 2 * 3.14159 * radius
+    return area, circumference
+
+area, circ = get_circle_info(5)
+print(f"Area: {area:.2f}, Circumference: {circ:.2f}")
+
+# Nested functions
+def outer_function(x):
+    def inner_function(y):
+        return y * 2
+    return inner_function(x) + 10
+
+result = outer_function(5)
+print(result)  # 20
+
+# Global vs local variables
+count = 0  # Global variable
+
+def increment():
+    global count  # Declare global to modify it
+    count += 1
+    local_var = "I'm local"  # Local variable
+
+increment()
+print(count)  # 1`}</code></pre>
+    </div>
+
+    <div class="bg-custom-secondary border border-custom rounded-2xl p-4 sm:p-6 mt-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-custom-accent mb-3">Function Best Practices</h2>
+      <ul class="list-disc list-inside space-y-2 pl-4">
+        <li>Use descriptive function names (verbs)</li>
+        <li>Keep functions small and focused (single responsibility)</li>
+        <li>Use docstrings to document function purpose</li>
+        <li>Limit function parameters (3-4 max when possible)</li>
+        <li>Use type hints for better code clarity</li>
+        <li>Avoid modifying mutable arguments in place</li>
+        <li>Return consistent data types</li>
+        <li>Use <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">*args</code> and <code class="bg-custom-primary text-custom-secondary px-1 rounded text-sm">**kwargs</code> judiciously</li>
+      </ul>
+    </div>
+  </section>
+</SidebarLayout>
