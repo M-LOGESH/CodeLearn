@@ -11,7 +11,7 @@ const topics = [
 
 const tutorials = topics.map((topic) => {
   const slug = `tutorials/${topic.toLowerCase()}`;
-  const image = `src/assets/img/tutorial/${topic.toLowerCase()}.svg`;
+  const image = `/assets/img/tutorial/${topic.toLowerCase()}.svg`;
   const alt = `${topic} Tutorial`;
 
   return {
